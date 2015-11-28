@@ -11,7 +11,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope',
     $scope.disable = true;
 
     $scope.disable = function(){
-      scope.status.isDisabled = scope.disable;
+      $scope.status.isDisabled = $scope.disable;
     };
 
     $scope.status = {
