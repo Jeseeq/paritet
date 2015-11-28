@@ -1,11 +1,11 @@
 web:
   build: .
   links:
-   - db
+   - mongo
   ports:
    - "3000:3000"
   environment: 
-   NODE_ENV: development
+   NODE_ENV: production
 db:
   image: mongo
   ports: 
