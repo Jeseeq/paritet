@@ -19,5 +19,5 @@ angular.module('createdoc').controller('CreatedocController', ['$scope',
       isFirstDisabled: false,
       isDisabled: false
     };
-};
+}
 ]);
