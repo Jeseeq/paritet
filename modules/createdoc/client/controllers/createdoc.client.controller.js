@@ -6,5 +6,5 @@ angular.module('createdoc').controller('CreatedocController', ['$scope',
   function ($scope) {
     $scope.hello = 'Jony';
 
-}
-]);
+  }
+  ]);
