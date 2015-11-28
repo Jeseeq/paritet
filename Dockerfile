@@ -28,5 +28,5 @@ ENV NODE_ENV production
 
 # Port 3000 for server
 # Port 35729 for livereload
-EXPOSE 3000 35729
+EXPOSE 5000 35729
 CMD ["grunt"]
