@@ -16,7 +16,13 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.min.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'public/lib/angular-file-upload/angular-file-upload.min.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib//jquery-migrate/jquery-migrate.min.js',
+        'public/lib/bootstrap/dist/js/bootstrap.min.js',
+        'public/lib/unify/plugins/smoothScroll.js',
+        'public/lib/unify/plugins/back-to-top.js',
+        'public/lib/unify/app.js'
       ]
     },
     css: 'public/dist/application.min.css',
