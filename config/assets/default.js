@@ -9,7 +9,7 @@ module.exports = {
         'public/lib/unify/css/*.css',
         'public/lib/unify/css/plugins/*.css',
         'public/lib/unify/css/plugins/line-icons/*.css',
-         'public/lib/unify/plugins/font-awesome/css/font-awesome.min.css'
+        'public/lib/unify/plugins/font-awesome/css/font-awesome.min.css'
       ],
       js: [
         'public/lib/angular/angular.js',
