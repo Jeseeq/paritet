@@ -5,7 +5,11 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/unify/css/*.css',
+        'public/lib/unify/css/plugins/*.css',
+        'public/lib/unify/css/plugins/line-icons/*.css',
+        'public/lib/unify/plugins/font-awesome/css/font-awesome.min.css'
       ],
       js: [
         'public/lib/angular/angular.js',
@@ -23,7 +27,6 @@ module.exports = {
         'public/lib/unify/plugins/smoothScroll.js',
         'public/lib/unify/plugins/back-to-top.js',
         'public/lib/unify/js/app.js'
-
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

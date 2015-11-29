@@ -24,9 +24,9 @@ RUN bower install --config.interactive=false --allow-root
 ADD . /home/mean
 
 # Set development environment as default
-ENV NODE_ENV production
+ENV NODE_ENV="production"
 
 # Port 3000 for server
 # Port 35729 for livereload
 EXPOSE 5000 35729
-CMD ["grunt"]
+CMD ["grunt", "prod"]
