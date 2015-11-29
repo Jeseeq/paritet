@@ -6,6 +6,11 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/unify/plugins/animate.css',
+        'public/lib/unify/plugins/line-icons/line-icons.css',
+        'public/lib/unify/css/footers/footer-v2.css">',
+        'public/lib/unify/css/style.css">',
+        'public/lib/unify/plugins/font-awesome/css/font-awesome.min.css'
       ],
       js: [
         'public/lib/angular/angular.min.js',
