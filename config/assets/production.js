@@ -22,7 +22,8 @@ module.exports = {
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
         'public/lib/unify/plugins/smoothScroll.js',
         'public/lib/unify/plugins/back-to-top.js',
-        'public/lib/unify/app.js'
+        'public/lib/unify/js/app.js'
+
       ]
     },
     css: 'public/dist/application.min.css',
