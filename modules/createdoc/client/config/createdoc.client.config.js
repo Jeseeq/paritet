@@ -6,7 +6,9 @@ angular.module('createdoc').run(['Menus',
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
       title: 'Создать документ',
-      state: 'createdoc'
+      state: 'createdoc',
+      position: '1',
+      type: 'item'
     });
   }
 ]);

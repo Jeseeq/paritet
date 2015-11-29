@@ -28,14 +28,26 @@
   <meta name="twitter:url" content="{{url}}">
   <meta name="twitter:image" content="{{logo}}">
 
+  <!-- Web Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
   <!-- Fav Icon -->
   <link href="{{favicon}}" rel="shortcut icon" type="image/x-icon">
 
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
+  <link rel="stylesheet" href="lib/unify/css/style.css">
+  <!-- CSS Header and Footer -->
+  <link rel="stylesheet" href="assets/css/headers/header-default.css">
+  <link rel="stylesheet" href="lib/unify/css/footer-v2.css">
+
+      <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="lib/unify/css/plugins/animate.css">
+    <link rel="stylesheet" href="lib/unify/css/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="lib/unify/css/plugins/font-awesome/css/font-awesome.min.css">
+
 </head>
 
-<body class="ng-cloak">
+<body class = "wrapper">
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
   <section class="content">
     <section class="container">
@@ -51,6 +63,8 @@
   <!--Load The Socket.io File-->
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 
+
+
   <!--Application JavaScript Files-->
   {% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
 
@@ -58,6 +72,88 @@
   <!--Livereload script rendered -->
   <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
   {% endif %}
+
+<div id="footer-v2" class="footer-v2">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- About -->
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <a href="/"><img id="logo-footer" class="footer-logo" src="lib/img/logo_footer.png" alt=""></a>
+                        <p class="margin-bottom-20">Паритет новая сверхбыстрая и удобная система для вашего удовольствия</p>
+                    </div>
+                    <!-- End About -->
+
+                    <!-- Link List -->
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="headline"><h2 class="heading-sm">Полезные ссылки</h2></div>
+                        <ul class="list-unstyled link-list">
+                            <li><a href="#">О нас</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Еще что-то</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Контакты</a><i class="fa fa-angle-right"></i></li>
+                        </ul>
+                    </div>
+                    <!-- End Link List -->
+
+                    <!-- Latest Tweets -->
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="latest-tweets">
+                            <div class="headline"><h2 class="heading-sm">Latest Tweets</h2></div>
+                            <div class="latest-tweets-inner">
+                                <i class="fa fa-twitter"></i>
+                                <p>
+                                    <a href="#">@htmlstream</a>
+                                    At vero seos etodela ccusamus et
+                                    <a href="#">http://t.co/sBav7dm</a>
+                                    <small class="twitter-time">2 hours ago</small>
+                                </p>
+                            </div>
+                            <div class="latest-tweets-inner">
+                                <i class="fa fa-twitter"></i>
+                                <p>
+                                    <a href="#">@htmlstream</a>
+                                    At vero seos etodela ccusamus et
+                                    <a href="#">http://t.co/sBav7dm</a>
+                                    <small class="twitter-time">4 hours ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Latest Tweets -->
+
+                    <!-- Address -->
+                    <div class="col-md-3 md-margin-bottom-40">
+                        <div class="headline"><h2 class="heading-sm">Свяжитесь с нами</h2></div>
+                        <address class="md-margin-bottom-40">
+                            <i class="fa fa-home"></i>3, Металистов, Киев, Украина <br />
+                            <i class="fa fa-phone"></i>Телефон +380632859017 <br />
+                            <i class="fa fa-globe"></i>Website: <a href="#">Паритет.уа</a> <br />
+                            <i class="fa fa-envelope"></i>Email: <a href="mailto:v.hrytsiienko@gmail.com">v.hrytsiienko@gmail.com</a>
+                        </address>
+
+                        <!-- Social Links -->
+                        <ul class="social-icons">
+                            <li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+                            <li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
+                            <li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
+                            <li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+                        </ul>
+                        <!-- End Social Links -->
+                    </div>
+                    <!-- End Address -->
+                </div>
+            </div>
+        </div><!--/footer-->
+
+        <div class="copyright">
+            <div class="container">
+                <p class="text-center">2015 &copy; All Rights Reserved. Unify Theme by <a target="_blank" href="https://twitter.com/htmlstream">Htmlstream</a></p>
+            </div>
+        </div><!--/copyright-->
+    </div>
+
 </body>
+
+
 
 </html>
