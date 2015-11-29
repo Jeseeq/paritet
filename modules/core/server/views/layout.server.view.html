@@ -27,6 +27,7 @@
   <meta name="twitter:description" content="{{description}}">
   <meta name="twitter:url" content="{{url}}">
   <meta name="twitter:image" content="{{logo}}">
+
   <!-- Web Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
   <!-- Fav Icon -->
@@ -36,14 +37,17 @@
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
   <link rel="stylesheet" href="unify/css/style.css">
   <!-- CSS Header and Footer -->
-  <link rel="stylesheet" href="assets/css/headers/header-default.css">
+  <link rel="stylesheet" href="unify/css/headers/header-default.css">
   <link rel="stylesheet" href="unify/css/footer-v2.css">
 
       <!-- CSS Implementing Plugins -->
-  <link rel="stylesheet" href="unify/plugins/animate.css">
-  <link rel="stylesheet" href="unify/plugins/line-icons/line-icons.css">
-  <link rel="stylesheet" href="unify/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="unify/css/plugins/animate.css">
+    <link rel="stylesheet" href="unify/css/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="unify/css/plugins/font-awesome/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="unify/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="unify/plugins/layer-slider/layerslider/css/layerslider.css">
+    <link rel="stylesheet" href="unify/css/pages/page_faq1.css">
 
 </head>
 
@@ -154,13 +158,7 @@
   <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
   {% endif %}
 
-<!-- JS from Unify -->
 
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-        App.init();
-      });
-</script>
 
 
 </body>

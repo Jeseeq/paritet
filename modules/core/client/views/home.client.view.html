@@ -1,84 +1,328 @@
 <section ng-controller="HomeController">
-  <div class="jumbotron text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-        <img alt="MEAN.JS" class="img-responsive text-center" src="modules/core/client/img/brand/logo.png" />
-      </div>
+
+
+  <!--=== Breadcrumbs v2 ===-->
+    <div class="breadcrumbs-v2 faq-breadcrumb margin-bottom-20">
+        <div class="breadcrumbs-v2-in">
+
+        </div>
     </div>
-    <br>
-    <div class="row">
-      <p class="lead">
-        Open-Source Full-Stack Solution For MEAN Applications
-      </p>
-    </div>
-    <div class="row">
-      <p>
-        <a class="btn btn-primary btn-lg" href="http://meanjs.org" target="_blank">Learn more</a>
-      </p>
-    </div>
-  </div>
-  <div>
-    <h2>Congrats! You've configured and run the sample application.</h2>
-    <p>MEAN.JS is a web application boilerplate, which means you should start changing everything :-)</p>
-    <p>This sample application tracks users and articles.</p>
-    <ul>
-      <li>
-        Click
-        <em>Sign Up</em> to get started.
-      </li>
-      <li>
-        Configure your app to work with your social accounts, by editing the
-        <em>/config/env/*.js</em> files.
-      </li>
-      <li>
-        Edit your users module.
-      </li>
-      <li>
-        Add new CRUD modules.
-      </li>
-      <li>
-        Have fun...
-      </li>
-    </ul>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <h2><strong>M</strong>ongoDB</h2>
-      <p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a NoSQL database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a> is the place to get started with NoSQL and MongoDB.</p>
-    </div>
-    <div class="col-md-3">
-      <h2><strong>E</strong>xpress</h2>
-      <p><a target="_blank" href="http://expressjs.com/"> Express</a> is a NodeJS server-side application web framework. Check out <a target="_blank" href="http://expressjs.com/4x/api.html">The ExpressJS API reference for more information</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>
-    </div>
-    <div class="col-md-3">
-      <h2><strong>A</strong>ngularJS</h2>
-      <p><a target="_blank" href="http://angularjs.org/">AngularJS</a> is client-side web application framework. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>
-    </div>
-    <div class="col-md-3">
-      <h2><strong>N</strong>ode.js</h2>
-      <p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a JavaScript run-time, popular for being a web server platform. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a> offer excellent starting points to get to grasps with node.</p>
-    </div>
-  </div>
-  <div class="well">
-    <h2>MEAN.JS Documentation</h2>
-    <p>
-      Once you're familiar with the foundation technology, check out the MEAN.JS Documentation:
-      <ul>
-        <li><a target="_blank" href="http://meanjs.org/docs.html">MEAN.JS Documentation</a>
-        </li>
-        <!-- <li><a target="_blank" href="http://meanjs.org/generator.html">Yeoman Generator</a>
-				</li> -->
-        <li><a target="_blank" href="http://meanjs.org/modules.html">Modules</a>
-        </li>
-        <li><a target="_blank" href="http://meanjs.org/changelog.html">Changelog</a>
-        </li>
-        <li><a target="_blank" href="http://meanjs.org/community.html">Community</a>
-        </li>
-        <li><a target="_blank" href="http://blog.meanjs.org">Blog</a>
-        </li>
-      </ul>
-    </p>
-  </div>
-  <br>Enjoy &amp; Keep Us Updated,
-  <br>The MEAN.JS Team.
+    <!--=== End Breadcrumbs v2 ===-->
+
+   <div class="purchase">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 animated fadeInLeft">
+                    <span>Главная страница, пока с тупыми текстами</span>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi  vehicula sem ut volutpat. Ut non libero magna fusce condimentum eleifend enim a feugiat corrupti quos.</p>
+                </div>
+                <div class="col-md-4 btn-buy animated fadeInRight">
+                    <a ui-sref="createdoc" class="btn-u btn-u-lg"><i class="fa fa-cloud-download"></i>Конструктор документов</a>
+                </div>
+            </div>
+        </div>
+    </div><!--/row-->
+    <!-- End Purchase Block -->
+
+    <!--=== Content Part ===-->
+    <div class="container content">
+        <div class="margin-bottom-10"></div>
+        <!-- Service Blocks -->
+        <div class="row content-boxes-v2 margin-bottom-30">
+            <div class="col-md-4 md-margin-bottom-30">
+                <h2 class="heading-sm">
+                    <a class="link-bg-icon" href="#">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-dark fa fa-compress"></i>
+                        <span>Универсальность</span>
+                    </a>
+                </h2>
+                <p class="text-justify">Система "вопрос-ответ" понятна и удобна пользователям без юридической подготовки.</p>
+            </div>
+            <div class="col-md-4 md-margin-bottom-30">
+                <h2 class="heading-sm">
+                    <a class="link-bg-icon" href="#">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-dark fa fa-html5"></i>
+                        <span>Быстро и удобно</span>
+                    </a>
+                </h2>
+                <p class="text-justify">Договор за 10-15 минут в любое удобное для Вас время. .</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="heading-sm">
+                    <a class="link-bg-icon" href="#">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-dark icon-line icon-rocket"></i>
+                        <span>Индивидуальност</span>
+                    </a>
+                </h2>
+                <p class="text-justify">Договор создается индивидуально под Ваши условия. Мы исключили любую шаблонность. .</p>
+            </div>
+        </div>
+
+        <div class="row content-boxes-v2 margin-bottom-30">
+            <div class="col-md-4 md-margin-bottom-30">
+                <h2 class="heading-sm">
+                    <a class="link-bg-icon" href="#">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-dark icon-line icon-support"></i>
+                        <span>Доступность</span>
+                    </a>
+                </h2>
+                <p class="text-justify">Составить онлайн-договор стоит всего 800 грн..</p>
+            </div>
+            <div class="col-md-4 md-margin-bottom-30">
+                <h2 class="heading-sm">
+                    <a class="link-bg-icon" href="#">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-dark fa fa-thumbs-o-up"></i>
+                        <span>Качество</span>
+                    </a>
+                </h2>
+                <p class="text-justify">Вы получаете юридически грамотные и полностью легитимные документы. ..</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="heading-sm">
+                    <a class="link-bg-icon" href="#">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-dark icon-line icon-present"></i>
+                        <span>Всегда</span>
+                    </a>
+                </h2>
+                <p class="text-justify">Только последние версии документов.</p>
+            </div>
+        </div>
+        <!-- End Service Blokcs -->
+
+        <!-- Recent Works -->
+        <div class="owl-carousel-v1 owl-work-v1 margin-bottom-40">
+            <div class="headline"><h2 class="pull-left">О нас пишут</h2>
+                <div class="owl-navigation">
+                    <div class="customNavigation">
+                        <a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a>
+                        <a class="owl-btn next-v2"><i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div><!--/navigation-->
+            </div>
+
+            <div class="owl-recent-works-v1">
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img1.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Happy New Year</strong>
+                            <i>Anim pariatur cliche reprehenderit</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img2.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Award Winning Agency</strong>
+                            <i>Responsive Bootstrap Template</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img3.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Wolf Moon Officia</strong>
+                            <i>Pariatur prehe cliche reprehrit</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img4.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Food Truck Quinoa Nesciunt</strong>
+                            <i>Craft labore wes anderson cred</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img5.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Happy New Year</strong>
+                            <i>Anim pariatur cliche reprehenderit</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img1.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Happy New Year</strong>
+                            <i>Anim pariatur cliche reprehenderit</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img2.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Award Winning Agency</strong>
+                            <i>Responsive Bootstrap Template</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img3.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Wolf Moon Officia</strong>
+                            <i>Pariatur prehe cliche reprehrit</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img4.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Food Truck Quinoa Nesciunt</strong>
+                            <i>Craft labore wes anderson cred</i>
+                        </span>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <em class="overflow-hidden">
+                            <img class="img-responsive" src="unify/img/main/img5.jpg" alt="">
+                        </em>
+                        <span>
+                            <strong>Happy New Year</strong>
+                            <i>Anim pariatur cliche reprehenderit</i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- End Recent Works -->
+
+      <!-- Info Blokcs -->
+      <div class="row margin-bottom-20">
+          <!-- Welcome Block -->
+        <div class="col-md-8 md-margin-bottom-40">
+          <div class="headline"><h2>Добро пожаловать</h2></div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-responsive margin-bottom-20" src="unify/img/main/img12.jpg" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
+                        <ul class="list-unstyled margin-bottom-20">
+                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
+                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
+                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
+                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <blockquote class="hero-unify">
+                    <p>Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти одеяло. Его многочисленные, убого тонкие.</p>
+                    <small>CEO, Jack Bour</small>
+                </blockquote>
+            </div><!--/col-md-8-->
+
+<!-- Latest Shots -->
+            <div class="col-md-4 md-margin-bottom-20">
+          <div class="headline"><h2>Картинки</h2></div>
+          <div id="myCarousel" class="carousel slide carousel-v1">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="unify/img/main/img5.jpg" alt="">
+                            <div class="carousel-caption">
+                                <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="unify/img/main/img4.jpg" alt="">
+                            <div class="carousel-caption">
+                                <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
+                            </div>
+                            </div>
+                        <div class="item">
+                            <img src="unify/img/main/img3.jpg" alt="">
+                            <div class="carousel-caption">
+                                <p>Justo cras odio apibus ac afilisis lingestas de.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-arrow">
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+          </div>
+            </div><!--/col-md-4-->
+      </div><!--/row-->
+      <!-- End Info Blokcs -->
+
+        <!-- Owl Clients v1 -->
+        <div class="headline"><h2>Наши клиенты</h2></div>
+        <div class="owl-clients-v1">
+            <div class="item">
+                <img src="unify/img/clients4/1.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/2.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/3.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/4.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/5.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/6.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/7.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/8.png" alt="">
+            </div>
+            <div class="item">
+                <img src="unify/img/clients4/9.png" alt="">
+            </div>
+        </div>
+        <!-- End Owl Clients v1 -->
+    </div><!--/container-->
+    <!-- End Content Part -->
+<!-- JS from Unify -->
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        LayerSlider.initLayerSlider();
+        OwlCarousel.initOwlCarousel();
+        OwlRecentWorks.initOwlRecentWorksV2();
+      });
+</script>
+
+
 </section>
