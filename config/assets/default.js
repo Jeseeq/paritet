@@ -24,9 +24,9 @@ module.exports = {
         'public/lib/jquery/dist/jquery.js',
         'public/lib//jquery-migrate/jquery-migrate.js',
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
-        'public/lib/unify/plugins/smoothScroll.js',
-        'public/lib/unify/plugins/back-to-top.js',
-        'public/lib/unify/js/app.js'
+        'public/unify/plugins/smoothScroll.js',
+        'public/unify/plugins/back-to-top.js',
+        'public/unify/js/app.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
