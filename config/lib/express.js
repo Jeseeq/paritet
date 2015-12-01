@@ -17,7 +17,10 @@ var config = require('../config'),
   helmet = require('helmet'),
   flash = require('connect-flash'),
   consolidate = require('consolidate'),
-  path = require('path');
+  path = require('path'),
+  mongo_express = require('mongo-express/middleware'),
+  mongo_express_config = require('./mongo_express_config');
+
 
 /**
  * Initialize local variables
@@ -88,6 +91,8 @@ module.exports.initMiddleware = function (app) {
   // Add the cookie parser and flash middleware
   app.use(cookieParser());
   app.use(flash());
+  //add mongo-express db editor
+  app.use('/mongo_express', mongo_express(mongo_express_config));
 };
 
 /**
