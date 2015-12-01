@@ -19,7 +19,7 @@ var config = require('../config'),
   consolidate = require('consolidate'),
   path = require('path'),
   mongo_express = require('mongo-express/middleware'),
-  mongo_express_config = require('./mongo_express_config');
+  mongo_express_config = require('./mongo-express/config');
 
 
 /**
