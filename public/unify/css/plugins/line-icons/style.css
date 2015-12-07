@@ -210,12 +210,12 @@ h2 code {
 	font-size: 3em;
 }
 
-a, 
+/*a,
 a:visited {
 	color: #74f3c8;
 	text-decoration: none;
 }
-
+*/
 a:hover, 
 a:focus {
 		color: #0e8a65;

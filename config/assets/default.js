@@ -6,10 +6,11 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'public/lib/unify/css/*.css',
-        'public/lib/unify/css/plugins/*.css',
-        'public/lib/unify/css/plugins/line-icons/*.css',
-        'public/lib/unify/plugins/font-awesome/css/font-awesome.min.css'
+        'public/unify/css/*.css',
+        'public/unify/css/plugins/*.css',
+        'public/unify/css/plugins/line-icons/*.css',
+        'public/unify/plugins/font-awesome/css/font-awesome.min.css',
+        'public/unify/plugins/hover-effects/css/custom-hover-effects.css'
 
       ],
       js: [

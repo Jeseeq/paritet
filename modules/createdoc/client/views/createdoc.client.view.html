@@ -11,29 +11,25 @@
     <uib-accordion close-others="true">
     <div class="col-md-4">
       <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 0">
-      <div ng-repeat="document in category.documents">
-        <span class="fa fa-angle-right">
-         <a ui-sref="document({documentId: document._id})">{{document.title}}  </a>
-       </span>
+      <div ng-repeat="document in category.documents" class="btn-block">
+         <a ui-sref="document({documentId: document._id})" class="btn-u btn-u-sm btn-block btn-u-blue">{{document.title}} </a>
      </div>
    </accordion-group>
  </div>
 
  <div class="col-md-4">
   <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 1">
-  <div ng-repeat="document in category.documents">
-    <span class="fa fa-angle-right">
-     <a ui-sref="document({documentId: document._id})">{{document.title}}</a>
-   </span>
+  <div ng-repeat="document in category.documents" class="btn-block">
+     <a ui-sref="document({documentId: document._id})" class="btn-u btn-u-sm btn-block btn-u-blue">{{document.title}}</a>
  </div>
 </uib-accordion-group>
 </div>
 
 <div class="col-md-4">
   <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 2">
-  <div ng-repeat="document in category.documents">
+  <div ng-repeat="document in category.documents" class="btn-block">
     <span class="fa fa-angle-right">
-     <a ui-sref="document({documentId: document._id})">{{document.title}}</a>
+     <a ui-sref="document({documentId: document._id})" class="btn-u btn-u-sm btn-block btn-u-blue">{{document.title}}</a>
    </span>
  </div>
 </uib-accordion-group>
