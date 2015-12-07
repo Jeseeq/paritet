@@ -9,9 +9,9 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8">
       <uib-accordion close-others="false">
-      <uib-accordion-group heading="{{question.title}}" ng-repeat="question in Onedocument.questions">
+      <uib-accordion-group heading="{{question.title}}" ng-repeat="question in Onedocument.questions"  is-open="true">
       <div class="radio" ng-repeat="subquestion in question.content">
         <label><input type="radio" name="{{question.title}}" >{{subquestion}}</label>
       </div>
