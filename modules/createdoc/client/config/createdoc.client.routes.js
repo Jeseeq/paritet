@@ -15,8 +15,9 @@ angular.module('createdoc').config(['$stateProvider',
 
     $stateProvider
     .state('document', {
-      url: '/document/:documentId',
-      templateUrl: 'modules/createdoc/client/views/createdoc.document.client.view.html',
+      url: '/document/{documentId}',
+      templateUrl: function($stateParams){return 'modules/createdoc/client/views/createdoc.' + $stateParams.documentId+ '.client.view.html';},
+     //'modules/createdoc/client/views/createdoc.document.client.view.html',
       data: {
         roles: ['user', 'admin']
       }

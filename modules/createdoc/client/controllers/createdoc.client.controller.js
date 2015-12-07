@@ -1,6 +1,6 @@
 'use strict';
-angular.module('createdoc').controller('CreatedocController', ['$scope', '$stateParams','$location','Authentication','Category',
-  function ($scope, $stateParams, $location, Authentication, Category) {
+angular.module('createdoc').controller('CreatedocController', ['$scope', '$stateParams','$location','Authentication','Category', 'Document',
+  function ($scope, $stateParams, $location, Authentication, Category, Document) {
     $scope.authentication = Authentication;
 
 
@@ -9,9 +9,9 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
       $scope.categories = Category.query();
     };
   
-    $scope.findOne = function (_id) {
-      $scope.documentTitle = Category.get({
-        categoryId: _id
+    $scope.findOne = function () {
+      $scope.Onedocument = Document.get({
+        documentId: $stateParams.documentId
       });
     };
   

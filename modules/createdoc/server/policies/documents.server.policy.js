@@ -15,10 +15,10 @@ exports.invokeRolesPolicies = function () {
   acl.allow([{
     roles: ['admin'],
     allows: [{
-      resources: '/api/documents',
+      resources: '/api/document',
       permissions: '*'
     }, {
-      resources: '/api/documents/:documentId',
+      resources: '/api/document/:documentId',
       permissions: '*'
     },{
       resources: '/api/category',
@@ -31,7 +31,7 @@ exports.invokeRolesPolicies = function () {
   }, {
     roles: ['user'],
     allows: [{
-      resources: '/api/documents',
+      resources: '/api/document',
       permissions: ['get', 'post']
     }, {
       resources: '/api/documents/:documentId',
@@ -40,10 +40,10 @@ exports.invokeRolesPolicies = function () {
   }, {
     roles: ['guest'],
     allows: [{
-      resources: '/api/documents',
+      resources: '/api/document',
       permissions: ['get']
     }, {
-      resources: '/api/documents/:documentId',
+      resources: '/api/document/:documentId',
       permissions: ['get']
     }]
   }]);

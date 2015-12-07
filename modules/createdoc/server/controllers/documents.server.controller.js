@@ -83,12 +83,6 @@ exports.list = function (req, res) {
  */
 exports.NewDocumentByID = function (req, res, next, id) {
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({
-      message: 'Document is invalid'
-    });
-  }
-
   lawDocument.findById(id).populate('category', 'category').exec(function (err, document) {
     if (err) {
       return next(err);

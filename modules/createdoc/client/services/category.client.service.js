@@ -13,5 +13,17 @@ angular.module('createdoc').factory('Category', ['$resource',
   },
 ]);
 
+angular.module('createdoc').factory('Document', ['$resource',
+  function ($resource) {
+    return $resource('api/document/:documentId', {
+      categoryId: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+  },
+]);
+
 
 

@@ -8,12 +8,12 @@ var documentsPolicy = require('../policies/documents.server.policy'),
 
 module.exports = function (app) {
   // Document collection routes
-  app.route('/api/documents').all(documentsPolicy.isAllowed)
+  app.route('/api/document').all(documentsPolicy.isAllowed)
     .get(documents.list)
     .post(documents.create);
 
   // Single article routes
-  app.route('/api/documents/:documentId').all(documentsPolicy.isAllowed)
+  app.route('/api/document/:documentId').all(documentsPolicy.isAllowed)
     .get(documents.read)
     .put(documents.update);
 
