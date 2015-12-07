@@ -15,9 +15,19 @@ module.exports = function (app) {
   // Single article routes
   app.route('/api/documents/:documentId').all(documentsPolicy.isAllowed)
     .get(documents.read)
-    .put(documents.update)
-    .delete(documents.delete);
+    .put(documents.update);
 
+
+  app.route('/api/category').all(documentsPolicy.isAllowed)
+    .post(documents.createDocumentCategory)
+    .get(documents.listDocumentCategory);
+  
+  app.route('/api/category/:categoryId').all(documentsPolicy.isAllowed)
+    .get(documents.readCategory)
+    .put(documents.updateCategory)
+    .delete(documents.deleteCategory);
+ 
   // Finish by binding the article middleware
   app.param('documentId', documents.NewDocumentByID);
+  app.param('categoryId', documents.categoryByID);
 };

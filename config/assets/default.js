@@ -10,6 +10,7 @@ module.exports = {
         'public/lib/unify/css/plugins/*.css',
         'public/lib/unify/css/plugins/line-icons/*.css',
         'public/lib/unify/plugins/font-awesome/css/font-awesome.min.css'
+
       ],
       js: [
         
@@ -23,20 +24,24 @@ module.exports = {
         'public/unify/plugins/layer-slider/layerslider/js/layerslider.kreaturamedia.jquery.js',
        
 
-        'public/unify/js/app.js',
-        'public/unify/js/plugins/layer-slider.js',
-        'public/unify/js/plugins/owl-carousel.js',
-        'public/unify/js/plugins/owl-recent-works.js',
-
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
         'public/lib/angular-messages/angular-messages.js',
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-ui-utils/ui-utils.js',
-        'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
+        'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+        'public/lib/angular-bootstrap/ui-bootstrap.js',
+
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+
+
+
+        'public/unify/js/app.js',
+        'public/unify/js/plugins/layer-slider.js',
+        'public/unify/js/plugins/owl-carousel.js',
+        'public/unify/js/plugins/owl-recent-works.js',
 
 
        

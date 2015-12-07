@@ -20,7 +20,7 @@ var QuestionSchema = new Schema({
     type: String,
     default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    required: 'Question Title cannot be blank'
   },
   content: {
     type: [String],

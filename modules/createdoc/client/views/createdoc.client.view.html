@@ -1,9 +1,44 @@
 <!-- The chat view -->
-<section class="container" ng-controller="CreatedocController">
+<section ng-controller="CreatedocController" ng-init="find()">
+
   <div class="page-header">
     <h1>Создать документ</h1>
   </div>
- 
 
- <p>Тест тест {{hello}}</p>
+
+
+  <div class="row document-link">
+    <uib-accordion close-others="true">
+    <div class="col-md-4">
+      <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 0">
+      <div ng-repeat="document in category.documents">
+        <span class="fa fa-angle-right">
+         <a ui-sref="document({documentId: document._id})">{{document.title}}  </a>
+       </span>
+     </div>
+   </accordion-group>
+ </div>
+
+ <div class="col-md-4">
+  <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 1">
+  <div ng-repeat="document in category.documents">
+    <span class="fa fa-angle-right">
+     <a ui-sref="document({documentId: document._id})">{{document.title}}</a>
+   </span>
+ </div>
+</uib-accordion-group>
+</div>
+
+<div class="col-md-4">
+  <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 2">
+  <div ng-repeat="document in category.documents">
+    <span class="fa fa-angle-right">
+     <a ui-sref="document({documentId: document._id})">{{document.title}}</a>
+   </span>
+ </div>
+</uib-accordion-group>
+</div>
+</uib-accordion>
+</div>
+
 </section>

@@ -11,5 +11,15 @@ angular.module('createdoc').config(['$stateProvider',
           roles: ['user', 'admin']
         }
       });
+
+
+    $stateProvider
+    .state('document', {
+      url: '/document/:documentId',
+      templateUrl: 'modules/createdoc/client/views/createdoc.document.client.view.html',
+      data: {
+        roles: ['user', 'admin']
+      }
+    });
   }
 ]);
