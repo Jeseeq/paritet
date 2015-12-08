@@ -20,126 +20,134 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
     };
 
  
- 	var vm = this;
- 	vm.person = {};
+    var vm = this;
+    vm.person = {};
 
-      vm.FizPersonFields = [
-        {
-            key: 'first_name',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Ім`я',
-                placeholder: 'Введіть ім`я',
-                required: true
-            }
-        },
-        {
-            key: 'last_name',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Прізвище',
-                placeholder: 'Введіть прізвище',
-                required: true
-            }
-        },
+    vm.FizPersonFields = [
       {
-            key: 'second_name',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'По-батькові',
-                placeholder: '',
-                required: true
-            }
-        },
-         {
-            key: 'address',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Адреса',
-                placeholder: '',
-                required: true
-            }
+        key: 'first_name',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Ім`я',
+          placeholder: 'Введіть ім`я',
+          required: true
         }
-
-    ];
-
-     vm.YurPersonFields = [
-        {
-            key: 'name',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Назва',
-                placeholder: 'Назва',
-                required: true
-            }
-        },
-        {
-            key: 'code_edrp',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Код ЄДРПОУ',
-                placeholder: 'ЄДРПОУ',
-                required: true
-            }
-        },
+      },
       {
-            key: 'address',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Адреса',
-                placeholder: '',
-                required: true
-            }
-        },
-    ];
-
-     vm.PrivPersonFields = [
-        {
-            key: 'first_name',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Ім`я',
-                placeholder: 'Введіть ім`я',
-                required: true
-            }
-        },
-        {
-            key: 'last_name',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'Прізвище',
-                placeholder: 'Введіть прізвище',
-                required: true
-            }
-        },
+        key: 'last_name',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Прізвище',
+          placeholder: 'Введіть прізвище',
+          required: true
+        }
+      },
       {
-            key: 'second_name',
-            type: 'input',
-            templateOptions: {
-                type: 'text',
-                label: 'По-батькові',
-                placeholder: '',
-                required: true
-            }
-        },
+        key: 'second_name',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'По-батькові',
+          placeholder: '',
+          required: true
+        }
+      },
+      {
+        key: 'address',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Адреса',
+          placeholder: '',
+          required: true
+        }
+      },
+      {
+        key: 'phone',
+        type: 'maskedInput',
+        templateOptions: {
+          label: 'Телефон',
+          mask: '(999) 999-9999'
+        }
+      }
+
+    ];
+
+    vm.YurPersonFields = [
+      {
+        key: 'name',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Назва',
+          placeholder: 'Назва',
+          required: true
+        }
+      },
+      {
+        key: 'code_edrp',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Код ЄДРПОУ',
+          placeholder: 'ЄДРПОУ',
+          required: true
+        }
+      },
+      {
+        key: 'address',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Адреса',
+          placeholder: '',
+          required: true
+        }
+      },
+    ];
+
+    vm.PrivPersonFields = [
+      {
+        key: 'first_name',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Ім`я',
+          placeholder: 'Введіть ім`я',
+          required: true
+        }
+      },
+      {
+        key: 'last_name',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'Прізвище',
+          placeholder: 'Введіть прізвище',
+          required: true
+        }
+      },
+      {
+        key: 'second_name',
+        type: 'input',
+        templateOptions: {
+          type: 'text',
+          label: 'По-батькові',
+          placeholder: '',
+          required: true
+        }
+      },
     ];
 
 
-	vm.person = {
-		first_name: Authentication.user.firstName || "",
-		last_name: Authentication.user.lastName || ""
-	};
+    vm.person = {
+      first_name: Authentication.user.firstName || '',
+      last_name: Authentication.user.lastName || ''
+    };
 
-	$scope.authentication = Authentication;
+    $scope.authentication = Authentication;
   }
   ]);
 

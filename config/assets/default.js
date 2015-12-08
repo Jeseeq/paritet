@@ -34,6 +34,7 @@ module.exports = {
         'public/lib/api-check/dist/api-check.js',
         'public/lib/angular-formly/dist/formly.js',
         'public/lib/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
+        'public/lib/angular-ui-mask/dist/mask.js',
        
 
 

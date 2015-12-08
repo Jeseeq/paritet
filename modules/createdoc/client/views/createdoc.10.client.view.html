@@ -18,20 +18,20 @@
         </uib-accordion-group>
       </uib-accordion>
     </div>
-    <div class="col-md-4" ng-if = "Onedocument.questions[0].selected == 1">
-      <form class="form">
+    <div class="col-md-4 form" ng-if = "Onedocument.questions[0].selected == 1">
+      <form>
           <formly-form model="vm.person" fields="vm.YurPersonFields" form="vm.YurPersonForm">
           </formly-form>
       </form>
     </div>
-      <div class="col-md-4" ng-if = "Onedocument.questions[0].selected == 2">
-        <form class="form">
+      <div class="col-md-4 form" ng-if = "Onedocument.questions[0].selected == 2">
+        <form>
           <formly-form model="vm.person" fields="vm.FizPersonFields" form="vm.FizPersonForm">
           </formly-form>
         </form>
       </div>
-      <div class="col-md-4" ng-if = "Onedocument.questions[0].selected == 3">
-        <form class="form">
+      <div class="col-md-4 form" ng-if = "Onedocument.questions[0].selected == 3">
+        <form>
           <formly-form model="vm.person" fields="vm.PrivPersonFields" form="vm.PrivPersonForm">
           </formly-form>
         </form>
