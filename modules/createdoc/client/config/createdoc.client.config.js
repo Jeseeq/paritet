@@ -1,4 +1,5 @@
 'use strict';
+
 angular.module('createdoc').run(['Menus',
   function (Menus) {
     // Set top bar menu items

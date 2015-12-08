@@ -1,6 +1,6 @@
 
 <!-- The chat view -->
-<section ng-controller="CreatedocController" ng-init="findOne()">
+<section ng-controller="CreatedocController as vm" ng-init="findOne()">
 
   <div class="page-header">
     <h1>
@@ -9,18 +9,48 @@
   </div>
 
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <uib-accordion close-others="false">
-      <uib-accordion-group heading="{{question.title}}" ng-repeat="question in Onedocument.questions"  is-open="true">
-      <div class="radio" ng-repeat="subquestion in question.content">
-        <label><input type="radio" name="{{question.title}}" >{{subquestion}}</label>
+        <uib-accordion-group heading="{{Onedocument.questions[0].title}}"  is-open="true" >
+          <div class="radio" ng-repeat="answer in Onedocument.questions[0].answers"  ng-init="Onedocument.questions[0].selected = 1">
+            <label><input type="radio" name="{{Onedocument.questions[0].id}}" value="{{answer.id}}" ng-model="Onedocument.questions[0].selected">{{answer.content}}</label>
+           </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+    <div class="col-md-4" ng-if = "Onedocument.questions[0].selected == 1">
+      <form class="form">
+          <formly-form model="vm.person" fields="vm.YurPersonFields" form="vm.YurPersonForm">
+          </formly-form>
+      </form>
+    </div>
+      <div class="col-md-4" ng-if = "Onedocument.questions[0].selected == 2">
+        <form class="form">
+          <formly-form model="vm.person" fields="vm.FizPersonFields" form="vm.FizPersonForm">
+          </formly-form>
+        </form>
       </div>
-    </uib-accordion-group>
-  </uib-accordion>
+      <div class="col-md-4" ng-if = "Onedocument.questions[0].selected == 3">
+        <form class="form">
+          <formly-form model="vm.person" fields="vm.PrivPersonFields" form="vm.PrivPersonForm">
+          </formly-form>
+        </form>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 question">
+      <uib-accordion close-others="false">
+        <uib-accordion-group heading="{{Onedocument.questions[1].title}}"  is-open="true" >
+          <div class="radio" ng-repeat="answer in Onedocument.questions[1].answers"  ng-init="Onedocument.questions[1].selected = 1">
+            <label><input type="radio" name="{{Onedocument.questions[1].id}}" value="{{answer.id}}" ng-model="Onedocument.questions[1].selected">{{answer.content}}</label>
+           </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+  </div>
 
-</div>
-
-</div>
-
+<pre>{{Onedocument | json}}</pre>
+<pre>{{vm.person | json}}</pre>
+<pre>{{authentication | json}}</pre>
 </section>
 
