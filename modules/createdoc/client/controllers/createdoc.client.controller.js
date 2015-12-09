@@ -10,157 +10,43 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
     };
 
 
-
-
-    //$scope.person = {};
-    //$scope.FizPersonFields = [
-    //  {
-    //    key: 'first_name',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Ім`я',
-    //      placeholder: 'Введіть ім`я',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'last_name',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Прізвище',
-    //      placeholder: 'Введіть прізвище',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'second_name',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'По-батькові',
-    //      placeholder: '',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'address',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Адреса',
-    //      placeholder: '',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'phone',
-    //    type: 'maskedInput',
-    //    templateOptions: {
-    //      label: 'Телефон',
-    //      mask: '(999) 999-9999'
-    //    }
-    //  }
-    //
-    //];
-    //
-    //$scope.YurPersonFields = [
-    //  {
-    //    key: 'name',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Назва',
-    //      placeholder: 'Назва',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'code_edrp',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Код ЄДРПОУ',
-    //      placeholder: 'ЄДРПОУ',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'address',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Адреса',
-    //      placeholder: '',
-    //      required: true
-    //    }
-    //  },
-    //];
-    //
-    //$scope.PrivPersonFields = [
-    //  {
-    //    key: 'first_name',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Ім`я',
-    //      placeholder: 'Введіть ім`я',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'last_name',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'Прізвище',
-    //      placeholder: 'Введіть прізвище',
-    //      required: true
-    //    }
-    //  },
-    //  {
-    //    key: 'second_name',
-    //    type: 'input',
-    //    templateOptions: {
-    //      type: 'text',
-    //      label: 'По-батькові',
-    //      placeholder: '',
-    //      required: true
-    //    }
-    //  },
-    //];
-
-
-
-
-
-    $scope.openModal = function (size) {
+    $scope.openModal = function () {
 
       var modalInstance = $uibModal.open({
         animation: false,
         templateUrl: 'myModalContent.html',
-        controller: function ($scope, $uibModalInstance) {
+        controller: function ($scope, $uibModalInstance, data, person) {
           var vm = this;
-          vm.person = {};
+          vm.person = person;
+          vm.data = data;
           vm.YurPersonFields = [
             {
-              key: 'name',
+              key: 'first_name',
               type: 'input',
               templateOptions: {
                 type: 'text',
-                label: 'Назва',
-                placeholder: 'Назва',
+                label: 'Ім`я',
+                placeholder: 'Введіть ім`я',
                 required: true
               }
             },
             {
-              key: 'code_edrp',
+              key: 'last_name',
               type: 'input',
               templateOptions: {
                 type: 'text',
-                label: 'Код ЄДРПОУ',
-                placeholder: 'ЄДРПОУ',
+                label: 'Прізвище',
+                placeholder: 'Введіть прізвище',
+                required: true
+              }
+            },
+            {
+              key: 'second_name',
+              type: 'input',
+              templateOptions: {
+                type: 'text',
+                label: 'По-батькові',
+                placeholder: '',
                 required: true
               }
             },
@@ -173,14 +59,49 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 placeholder: '',
                 required: true
               }
-            }
+            },
+            {
+              key: 'phone',
+              type: 'maskedInput',
+              templateOptions: {
+                label: 'Телефон',
+                mask: '(999) 999-9999'
+              }
+            },
+            {
+              key: 'name',
+              type: 'input',
+              templateOptions: {
+                type: 'text',
+                label: 'Назва',
+                placeholder: 'Назва',
+                required: true
+              },
+              hideExpression : function(){
+               return (vm.data.questions[0].selected === '1');
+              }
+            },
+            {
+              key: 'code_edrp',
+              type: 'input',
+              templateOptions: {
+                type: 'text',
+                label: 'Код ЄДРПОУ',
+                placeholder: 'ЄДРПОУ',
+                required: true
+              }
+            },
+
           ];
         },
         controllerAs: 'vm',
-        size: size,
+        size: 'lg',
         resolve: {
-          items: function () {
-            return $scope.items;
+          data: function () {
+            return $scope.data;
+          },
+          person :function(){
+            return $scope.person;
           }
         }
       });
