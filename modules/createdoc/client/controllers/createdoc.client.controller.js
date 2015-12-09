@@ -28,6 +28,9 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 label: 'Ім`я',
                 placeholder: 'Введіть ім`я',
                 required: true
+              },
+              hideExpression : function(){
+                return (vm.data.questions[0].selected === '1');
               }
             },
             {
@@ -38,6 +41,9 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 label: 'Прізвище',
                 placeholder: 'Введіть прізвище',
                 required: true
+              },
+              hideExpression : function(){
+                return (vm.data.questions[0].selected === '1');
               }
             },
             {
@@ -48,6 +54,9 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 label: 'По-батькові',
                 placeholder: '',
                 required: true
+              },
+              hideExpression : function(){
+                return (vm.data.questions[0].selected === '1');
               }
             },
             {
@@ -61,14 +70,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               }
             },
             {
-              key: 'phone',
-              type: 'maskedInput',
-              templateOptions: {
-                label: 'Телефон',
-                mask: '(999) 999-9999'
-              }
-            },
-            {
               key: 'name',
               type: 'input',
               templateOptions: {
@@ -78,7 +79,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 required: true
               },
               hideExpression : function(){
-               return (vm.data.questions[0].selected === '1');
+                return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
               }
             },
             {
@@ -89,6 +90,17 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 label: 'Код ЄДРПОУ',
                 placeholder: 'ЄДРПОУ',
                 required: true
+              },
+              hideExpression : function(){
+                return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
+              }
+            },
+            {
+              key: 'phone',
+              type: 'maskedInput',
+              templateOptions: {
+                label: 'Телефон',
+                mask: '(999) 999-9999'
               }
             },
 
