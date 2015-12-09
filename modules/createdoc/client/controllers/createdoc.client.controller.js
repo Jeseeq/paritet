@@ -10,7 +10,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
     };
 
 
-    $scope.openModal = function () { 
+    $scope.openModal = function () {
 
       var modalInstance = $uibModal.open({
         animation: false,
@@ -107,7 +107,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
           ];
         },
         controllerAs: 'vm',
-        size: 'lg',
+        size: 'sm',
         resolve: {
           data: function () {
             return $scope.data;
