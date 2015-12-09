@@ -29,6 +29,50 @@
       </uib-accordion>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-6 question">
+      <uib-accordion close-others="false">
+        <uib-accordion-group heading="{{data.questions[2].title}}"  is-open="true" >
+          <div class="radio" ng-repeat="answer in data.questions[2].answers"  ng-init="data.questions[2].selected = 1">
+            <label><input type="radio" name="{{data.questions[2].id}}" value="{{answer.id}}" ng-model="data.questions[2].selected">{{answer.content}}</label>
+          </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 question">
+      <uib-accordion close-others="false">
+        <uib-accordion-group heading="{{data.questions[3].title}}"  is-open="true" >
+          <div class="radio" ng-repeat="answer in data.questions[3].answers"  ng-init="data.questions[3].selected = 1">
+            <label><input type="radio" name="{{data.questions[3].id}}" value="{{answer.id}}" ng-model="data.questions[3].selected">{{answer.content}}</label>
+          </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 question">
+      <uib-accordion close-others="false">
+        <uib-accordion-group heading="{{data.questions[4].title}}"  is-open="true" >
+          <div class="radio" ng-repeat="answer in data.questions[4].answers"  ng-init="data.questions[4].selected = 1">
+            <label><input type="radio" name="{{data.questions[4].id}}" value="{{answer.id}}" ng-model="data.questions[4].selected">{{answer.content}}</label>
+          </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 question">
+      <uib-accordion close-others="false">
+        <uib-accordion-group heading="{{data.questions[5].title}}"  is-open="true" >
+          <div class="radio" ng-repeat="answer in data.questions[5].answers"  ng-init="data.questions[4].selected = 1">
+            <label><input type="radio" name="{{data.questions[5].id}}" value="{{answer.id}}" ng-model="data.questions[5].selected">{{answer.content}}</label>
+          </div>
+        </uib-accordion-group>
+      </uib-accordion>
+    </div>
+  </div>
 
 
 
