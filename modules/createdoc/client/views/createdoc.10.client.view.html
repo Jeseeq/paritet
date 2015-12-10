@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 question">
+    <div class="col-md-6 question" >
       <uib-accordion close-others="false">
         <uib-accordion-group heading="{{data.questions[2].title}}"  is-open="true" >
           <div class="radio" ng-repeat="answer in data.questions[2].answers"  ng-init="data.questions[2].selected = 1">
@@ -40,8 +40,8 @@
       </uib-accordion>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6 question">
+  <div class="row my-animation" ng-if="data.questions[2].selected !== '2'">
+    <div class="col-md-6 question" >
       <uib-accordion close-others="false">
         <uib-accordion-group heading="{{data.questions[3].title}}"  is-open="true" >
           <div class="radio" ng-repeat="answer in data.questions[3].answers"  ng-init="data.questions[3].selected = 1">
