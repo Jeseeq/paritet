@@ -20,7 +20,7 @@ module.exports = {
       js: [
         
         'public/lib/jquery/dist/jquery.js',
-        'public/lib//jquery-migrate/jquery-migrate.js',
+        //'public/lib//jquery-migrate/jquery-migrate.js',
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
 
         'public/lib/angular/angular.js',
