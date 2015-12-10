@@ -163,6 +163,99 @@
 
 <section ng-controller="HomeController">
 
+  <!--
+          BEGIN: App-Loading Screen.
+          --
+          Until the AngularJS application code is loaded and bootstrapped, this is just
+          "static HTML." Meaning, the [class-based] directive, "mAppLoading", won't
+          actually do anything until the application is initialized. As such, we'll give
+          it just enough CSS to "fail open"; then, when the AngularJS app loads, the
+          directive will run and we'll remove this loading screen.
+          NOTES ON ANIMATION:
+          When the AngularJS application is loaded and starts bootstrapping, all
+          animations are disabled until all the routing information and templating
+          information is loaded AND at least two digests have run (in order to prevent
+          a flurry of animation activity). As such, we can't animate the root of the
+          directive. Instead, we have to add "ngAnimateChildren" to the root element
+          and then animate the inner container. The "ngAnimateChildren" directive allows
+          us to override the animation-blocking within the bounds of our directive, which
+          is fine since it only runs once.
+      -->
+  <div class="m-app-loading" ng-animate-children>
+
+    <!--
+        HACKY CODE WARNING: I'm putting Style block inside directive so that it
+        will be removed from the DOM when we remove the directive container.
+    -->
+    <style type="text/css">
+      div.m-app-loading {
+        position: fixed ;
+      }
+      div.m-app-loading div.animated-container {
+        background-color: #333333 ;
+        bottom: 0px ;
+        left: 0px ;
+        opacity: 1.0 ;
+        position: fixed ;
+        right: 0px ;
+        top: 0px ;
+        z-index: 999999 ;
+      }
+      /* Used to initialize the ng-leave animation state. */
+      div.m-app-loading div.animated-container.ng-leave {
+        opacity: 1.0 ;
+        transition: all linear 200ms ;
+        -webkit-transition: all linear 200ms ;
+      }
+      /* Used to set the end properties of the ng-leave animation state. */
+      div.m-app-loading div.animated-container.ng-leave-active {
+        opacity: 0 ;
+      }
+      div.m-app-loading div.messaging {
+        color: #FFFFFF ;
+        font-family: monospace ;
+        left: 0px ;
+        margin-top: -37px ;
+        position: absolute ;
+        right: 0px ;
+        text-align: center ;
+        top: 50% ;
+      }
+      div.m-app-loading h1 {
+        font-size: 26px ;
+        line-height: 35px ;
+        margin: 0px 0px 20px 0px ;
+      }
+      div.m-app-loading p {
+        font-size: 18px ;
+        line-height: 14px ;
+        margin: 0px 0px 0px 0px ;
+      }
+    </style>
+
+
+    <!-- BEGIN: Actual animated container. -->
+    <div class="animated-container">
+
+      <div class="messaging">
+
+        <h1>
+          Сайт завантажується
+        </h1>
+
+        <p>
+          Будьласка залишайтесь
+        </p>
+
+      </div>
+
+    </div>
+    <!-- END: Actual animated container. -->
+
+  </div>
+  <!-- END: App-Loading Screen. -->
+
+
 
   <!--&lt;!&ndash;=== Breadcrumbs v2 ===&ndash;&gt;-->
     <!--<div class="breadcrumbs-v2 faq-breadcrumb margin-bottom-20">-->
@@ -377,83 +470,8 @@
             </div>
         </div>
         <!-- End Recent Works -->
+      
 
-      <!-- Info Blokcs -->
-      <div class="row margin-bottom-20">
-          <!-- Welcome Block -->
-        <div class="col-md-8 md-margin-bottom-40">
-          <div class="headline"><h2>Добро пожаловать</h2></div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <img class="img-responsive margin-bottom-20" src="unify/img/main/img12.jpg" alt="">
-                    </div>
-                    <div class="col-sm-8">
-                        <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
-                        <ul class="list-unstyled margin-bottom-20">
-                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
-                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
-                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
-                            <li><i class="fa fa-check color-green"></i> Проснувшись однажды утром после беспокойного сна</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <blockquote class="hero-unify">
-                    <p>Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти одеяло. Его многочисленные, убого тонкие.</p>
-                    <small>CEO, Jack Bour</small>
-                </blockquote>
-            </div><!--/col-md-8-->
-
-<!-- Latest Shots -->
-
-            <div class="col-md-4 md-margin-bottom-20">
-              <div class="headline"><h2>Картинки</h2></div>
-              <div >
-                <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-                  <uib-slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}" style="margin:auto;">
-                    <div class="carousel-caption">
-                      <p>{{slide.text}}</p>
-                    </div>
-                  </uib-slide>
-                </uib-carousel>
-              </div>
-            </div><!--/col-md-4-->
-      </div><!--/row-->
-      <!-- End Info Blokcs -->
-
-        <!-- Owl Clients v1 -->
-        <div class="headline"><h2>Наши клиенты</h2></div>
-        <div class="owl-clients-v1">
-            <div class="item">
-                <img src="unify/img/clients4/1.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/2.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/3.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/4.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/5.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/6.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/7.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/8.png" alt="">
-            </div>
-            <div class="item">
-                <img src="unify/img/clients4/9.png" alt="">
-            </div>
-        </div>
-        <!-- End Owl Clients v1 -->
     </div><!--/container-->
     <!-- End Content Part -->
 <!-- JS from Unify -->
