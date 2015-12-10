@@ -1,7 +1,7 @@
 /*Footer-v2
 ------------------------------------*/
 .footer-v2 .footer {
-	padding: 40px 0;
+	padding: 20px 0;
 	background: #f7f7f7;
 	border-top: 3px solid #eee;
 }
@@ -43,7 +43,7 @@
 .footer-v2 .copyright {
 	border-top: none;
 	background: #eee;
-	padding: 20px 0 15px;
+	padding: 10px 0 10px;
 }
 
 .footer-v2 .copyright p {
