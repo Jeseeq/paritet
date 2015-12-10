@@ -4,10 +4,10 @@ module.exports = {
   client: {
     lib: {
       css: [
-        //'public/lib/bootstrap/dist/css/bootstrap.css',
+        'public/lib/bootstrap/dist/css/bootstrap.css',
         //'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/bootstraptheme/usebootstrap.css',
-        'public/bootstraptheme/bootstrap.css',
+        //'public/bootstraptheme/bootstrap.css',
 
 
         'public/unify/css/*.css',

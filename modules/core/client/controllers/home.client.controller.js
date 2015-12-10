@@ -9,18 +9,18 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.noWrapSlides = false;
 
     $scope.slides = [{
-        image:'unify/img/kitten/1.jpg',
-        text: 'test'
-      },
-      {
-        image:'unify/img/kitten/2.jpg',
-        text: 'test'
+      image:'unify/img/kitten/1.jpg',
+      text: 'test'
+    },
+    {
+      image:'unify/img/kitten/2.jpg',
+      text: 'test'
 
-      },
-      {
-        image:'unify/img/kitten/3.jpg',
-        text: 'test'
-      }
+    },
+    {
+      image:'unify/img/kitten/3.jpg',
+      text: 'test'
+    }
     ];
 
 
