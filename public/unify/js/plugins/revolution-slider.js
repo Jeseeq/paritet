@@ -10,7 +10,7 @@ var RevolutionSlider = function () {
 	            {
 	                delay:9000,
 	                startwidth:1170,
-	                startheight:250,
+	                startheight:350,
 	                hideThumbs:10,
 					navigationStyle:"preview4"
 	            });
