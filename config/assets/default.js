@@ -44,13 +44,15 @@ module.exports = {
 
 
         'public/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js',
-        'public/unify/plugins/layer-slider/layerslider/js/greensock.js',
-        'public/unify/plugins/layer-slider/layerslider/js/layerslider.transitions.js',
-        'public/unify/plugins/layer-slider/layerslider/js/layerslider.kreaturamedia.jquery.js',
-       
+        //'public/unify/plugins/layer-slider/layerslider/js/greensock.js',
+        //'public/unify/plugins/layer-slider/layerslider/js/layerslider.transitions.js',
+        //'public/unify/plugins/layer-slider/layerslider/js/layerslider.kreaturamedia.jquery.js',
+        'public/unify/js/plugins/revolution-slider.js',
+        'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js',
+        'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js',
 
         'public/unify/js/app.js',
-        'public/unify/js/plugins/layer-slider.js',
+        //'public/unify/js/plugins/layer-slider.js',
         'public/unify/js/plugins/owl-carousel.js',
         'public/unify/js/plugins/owl-recent-works.js',
         

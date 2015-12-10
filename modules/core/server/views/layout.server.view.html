@@ -37,6 +37,7 @@
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
   <link rel="stylesheet" href="unify/css/style.css">
   <link rel="stylesheet" href="unify/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+  <link rel="stylesheet" href="unify/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
 </head>
 
 <body class = "wrapper">
@@ -47,7 +48,7 @@
     </section>
   </section>
 
-
+<div class="row">
 <div id="footer-v2" class="footer-v2">
         <div class="footer">
             <div class="container">
@@ -127,7 +128,7 @@
         </div><!--/copyright-->
     </div>
 
-
+</div>
   <!--Embedding The User Object-->
   <script type="text/javascript">
     var user = {{ user | json | safe }};
