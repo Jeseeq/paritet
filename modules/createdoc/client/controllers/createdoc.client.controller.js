@@ -1,7 +1,8 @@
 'use strict';
 angular.module('createdoc').controller('CreatedocController', ['$scope', '$stateParams','$location','Authentication','documentData', '$log', '$uibModal',
-  function ($scope, $stateParams, $location, Authentication, documentData, $log, $uibModal) {
+  function ($scope, $stateParams, $location, Authentication, documentData, $log, $uibModal, $q, $http) {
 
+    $scope.place = {};
     $scope.data = documentData;
     $scope.authentication = Authentication;
     $scope.person = {
@@ -18,7 +19,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
       var modalInstance = $uibModal.open({
         animation: false,
         templateUrl: 'myModalContent.html',
-        controller: function ($scope, $uibModalInstance, data, person) {
+        controller: function ($q, $http, $scope, $uibModalInstance, data, person) {
 
           //Modal window close functions
           $scope.close = function () {
@@ -80,12 +81,13 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'address',
-              type: 'horizontalInput',
+              type: 'horizontalGoogleInput',
               templateOptions: {
                 type: 'text',
                 label: 'Адреса',
                 placeholder: '',
-                required: true
+                required: true,
+                googleAutocomplete: ''
               }
             },
             {
@@ -123,10 +125,44 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               }
             },
 
+            //{
+            //  key: 'awesomeAddress',
+            //  type: 'async-ui-select',
+            //  templateOptions: {
+            //    label: 'Address',
+            //    placeholder: 'Example of Async Select',
+            //    valueProp: 'formatted_address',
+            //    labelProp: 'formatted_address',
+            //    options: [],
+            //    refresh: refreshAddresses,
+            //    refreshDelay: 0
+            //  }
+            //}
+
+
+
           ];
+
+
+          function refreshAddresses(address, field) {
+            var promise;
+            if (!address) {
+              promise = $q.when({data: {results: []}});
+            } else {
+              var params = {address: address, sensor: false};
+              var endpoint = '//maps.googleapis.com/maps/api/geocode/json';
+              promise = $http.get(endpoint, {params: params});
+            }
+            return promise.then(function(response) {
+              field.templateOptions.options = response.data.results;
+            });
+          }
+
+
+
         },
         controllerAs: 'vm',
-        size: 'md',
+        size: 'lg',
         //resolve data inject
         resolve: {
           data: function () {

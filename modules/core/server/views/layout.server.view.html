@@ -36,6 +36,8 @@
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
   <link rel="stylesheet" href="unify/css/style.css">
+  <link rel="stylesheet" href="https://rawgit.com/angular-ui/ui-select/master/dist/select.css">
+
 </head>
 
 <body class = "wrapper">
@@ -77,7 +79,7 @@
 
   <!--Load The Socket.io File-->
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
 
   <!--Application JavaScript Files-->

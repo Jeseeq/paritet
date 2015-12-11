@@ -21,7 +21,10 @@
     "angular-formly": "~7.3.7",
     "angular-formly-templates-bootstrap": "~6.2.0",
     "angular-ui-mask": "~1.6.3",
-    "bootswatch-dist": "3.3.6-yeti"
+    "bootswatch-dist": "3.3.6-yeti",
+    "angular-ui-select3": "ui-select#*",
+    "ui-select": "angular-ui-select#~0.13.2",
+    "angular-google-places-autocomplete": "~0.2.7"
   },
   "resolutions": {
     "angular": "~1.3"

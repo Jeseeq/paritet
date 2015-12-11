@@ -81,12 +81,15 @@
       <h4 class="modal-title">Заповніть дані</h4>
     </div>
     <div class="modal-body">
+
       <form class="form-horizontal sky-form">
         <fieldset>
         <formly-form model="vm.person" fields="vm.YurPersonFields" form="vm.YurPersonForm" options="vm.options">
         </formly-form>
         </fieldset>
       </form>
+
+
     </div>
     <div class="modal-footer">
       <button class="btn-u" type="button" ng-click="close()">Сохранить</button>
@@ -106,6 +109,18 @@
       <div class="panel-body" ng-transclude></div>
     </div>
   </div>
+  </script>
+
+
+  <script type="text/ng-template" id="async-ui-select-type.html">
+  <ui-select ng-model="model[options.key]" theme="bootstrap">
+    <ui-select-match placeholder="{{to.placeholder}}">{{$select.selected[to.labelProp || 'name']}}</ui-select-match>
+    <ui-select-choices repeat="option[to.valueProp || 'value'] as option in to.options | filter: $select.search"
+                       refresh="to.refresh($select.search, options)"
+                       refresh-delay="{{to.refreshDelay}}">
+      <div ng-bind-html="option[to.labelProp || 'name'] | highlight: $select.search"></div>
+    </ui-select-choices>
+  </ui-select>
   </script>
 
 

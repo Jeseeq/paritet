@@ -30,6 +30,14 @@ angular.module('createdoc').run(['Menus','formlyConfig',
       }
     });
 
+    formlyConfig.extras.removeChromeAutoComplete = true;
+    formlyConfig.setType({
+      name: 'async-ui-select',
+      extends: 'select',
+      templateUrl: 'async-ui-select-type.html'
+    });
+
+
 
   }
 ]);
@@ -65,6 +73,30 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
     wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
   });
 
+
+  formlyConfigProvider.setType({
+    name:'placeAutoComplete',
+    template:"<label class='control-label' ng-if='to.label'>{{to.label}}</label>" +
+    "<input g-places-autocomplete class='form-control' ng-model='model[options.key]'" +
+    "ng-attr-options='to.autocompleteOptions'" +
+    "ng-attr-force-selection='to.forceSelection'/>",
+    link: function(scope, el, attrs) {},
+  });
+
+
+  formlyConfigProvider.setType({
+    name: 'horizontalGoogleInput',
+    extends: 'input',
+    wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
+    defaultOptions: {
+      ngModelAttrs: {
+        googleAutocomplete: {
+          attribute: 'g-places-autocomplete'
+        }
+      }
+    }
+  });
+
   formlyConfigProvider.setType({
     name: 'horizontalMaskedInput',
     extends: 'input',
@@ -90,4 +122,14 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
     extends: 'checkbox',
     wrapper: ['horizontalBootstrapCheckbox', 'bootstrapHasError']
   });
+  formlyConfigProvider.extras.removeChromeAutoComplete = true;
+  formlyConfigProvider.setType({
+    name: 'async-ui-select',
+    extends: 'select',
+    templateUrl: 'async-ui-select-type.html'
+  });
+
+
+
+
 });

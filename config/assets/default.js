@@ -16,7 +16,9 @@ module.exports = {
         'public/unify/plugins/font-awesome/css/font-awesome.min.css',
         'public/unify/plugins/revolution-slider/rs-plugin/css/settings.css',
         'public/unify/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
-        'public/unify/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css'
+        'public/unify/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
+        'public/lib/ui-select/dist/select.css',
+        'public/lib/angular-google-places-autocomplete/src/autocomplete.css'
 
       ],
       js: [
@@ -33,7 +35,11 @@ module.exports = {
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-bootstrap/ui-bootstrap.js',
+        'public/lib/angular-sanitize/angular-sanitize.js',
+        'public/lib/ui-select/dist/select.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/angular-google-places-autocomplete/src/autocomplete.js',
+      
 
         //forms
         'public/lib/api-check/dist/api-check.js',
