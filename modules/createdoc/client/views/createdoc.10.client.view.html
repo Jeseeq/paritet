@@ -11,7 +11,7 @@
 
     <div class="col-md-6" popover-placement="right" uib-popover="Виберіть один із пунктів" popover-trigger = 'none' popover-is-open = "!data.questions[0].selected">
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[0].title}}"  is-open="true">
+        <uib-accordion-group heading="{{data.questions[0].title}}" is-open="isOpen"  template-url="accordion-group.html">
           <div class="radio" ng-repeat="answer in data.questions[0].answers">
             <label><input type="radio" name="{{data.questions[0].id}}" value="{{answer.id}}" ng-model="data.questions[0].selected"  ng-click = "openModal()">{{answer.content}}</label>
            </div>
@@ -22,7 +22,7 @@
   <div class="row">
     <div class="col-md-6 question">
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[1].title}}"  is-open="true" >
+        <uib-accordion-group heading="{{data.questions[1].title}}"  is-open="isOpen"  template-url="accordion-group.html">
           <div class="radio" ng-repeat="answer in data.questions[1].answers"  ng-init="data.questions[1].selected = 1">
             <label><input type="radio" name="{{data.questions[1].id}}" value="{{answer.id}}" ng-model="data.questions[1].selected">{{answer.content}}</label>
            </div>
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-md-6 question" >
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[2].title}}"  is-open="true" >
+        <uib-accordion-group heading="{{data.questions[2].title}}"  is-open="isOpen"  template-url="accordion-group.html">
           <div class="radio" ng-repeat="answer in data.questions[2].answers"  ng-init="data.questions[2].selected = 1">
             <label><input type="radio" name="{{data.questions[2].id}}" value="{{answer.id}}" ng-model="data.questions[2].selected">{{answer.content}}</label>
           </div>
@@ -44,7 +44,7 @@
   <div class="row my-animation" ng-if="data.questions[2].selected !== '2'">
     <div class="col-md-6 question" >
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[3].title}}"  is-open="true" >
+        <uib-accordion-group heading="{{data.questions[3].title}}"  is-open="isOpen"  template-url="accordion-group.html" >
           <div class="radio" ng-repeat="answer in data.questions[3].answers"  ng-init="data.questions[3].selected = 1">
             <label><input type="radio" name="{{data.questions[3].id}}" value="{{answer.id}}" ng-model="data.questions[3].selected">{{answer.content}}</label>
           </div>
@@ -55,7 +55,7 @@
   <div class="row">
     <div class="col-md-6 question">
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[4].title}}"  is-open="true" >
+        <uib-accordion-group heading="{{data.questions[4].title}}"  is-open="isOpen"  template-url="accordion-group.html" >
           <div class="radio" ng-repeat="answer in data.questions[4].answers"  ng-init="data.questions[4].selected = 1">
             <label><input type="radio" name="{{data.questions[4].id}}" value="{{answer.id}}" ng-model="data.questions[4].selected">{{answer.content}}</label>
           </div>
@@ -66,7 +66,7 @@
   <div class="row">
     <div class="col-md-6 question">
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[5].title}}"  is-open="true" >
+        <uib-accordion-group heading="{{data.questions[5].title}}"  is-open="isOpen"  template-url="accordion-group.html">
           <div class="radio" ng-repeat="answer in data.questions[5].answers"  ng-init="data.questions[4].selected = 1">
             <label><input type="radio" name="{{data.questions[5].id}}" value="{{answer.id}}" ng-model="data.questions[5].selected">{{answer.content}}</label>
           </div>
@@ -94,7 +94,18 @@
   </script>
 
 
-
+  <script type="text/ng-template" id="accordion-group.html">
+  <div class="panel {{panelClass || 'panel-default'}}">
+    <div class="abc panel-heading" ng-keypress="toggleOpen($event)" ng-click="toggleOpen()" >
+      <h4 class="panel-title">
+        <a href tabindex="0" class="accordion-toggle" uib-accordion-transclude="heading"><span ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+      </h4>
+    </div>
+    <div class="panel-collapse collapse" uib-collapse="!isOpen">
+      <div class="panel-body" ng-transclude></div>
+    </div>
+  </div>
+  </script>
 
 
   <pre>{{person | json}}</pre>
