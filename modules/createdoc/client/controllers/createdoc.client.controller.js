@@ -22,7 +22,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
           vm.YurPersonFields = [
             {
               key: 'first_name',
-              type: 'input',
+              type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
                 label: 'Ім`я',
@@ -35,7 +35,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'last_name',
-              type: 'input',
+              type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
                 label: 'Прізвище',
@@ -48,7 +48,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'second_name',
-              type: 'input',
+              type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
                 label: 'По-батькові',
@@ -61,7 +61,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'address',
-              type: 'input',
+              type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
                 label: 'Адреса',
@@ -71,7 +71,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'name',
-              type: 'input',
+              type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
                 label: 'Назва',
@@ -84,7 +84,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'code_edrp',
-              type: 'input',
+              type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
                 label: 'Код ЄДРПОУ',
@@ -97,7 +97,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'phone',
-              type: 'maskedInput',
+              type: 'horizontalMaskedInput',
               templateOptions: {
                 label: 'Телефон',
                 mask: '(999) 999-9999'
@@ -107,7 +107,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
           ];
         },
         controllerAs: 'vm',
-        size: 'sm',
+        size: 'md',
         resolve: {
           data: function () {
             return $scope.data;
