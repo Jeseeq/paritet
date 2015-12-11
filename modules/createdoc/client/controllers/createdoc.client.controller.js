@@ -22,10 +22,13 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
 
           //Modal window close functions
           $scope.close = function () {
+            angular.element(document.querySelector(".radio")).blur();
             $uibModalInstance.dismiss('cancel');
           };
           $scope.cancelAndReset = function(){
             vm.options.resetModel();
+            var radio = angular.element(document.querySelector(".radio"));
+            var radio_input = radio.find('input').blur();
             $uibModalInstance.dismiss('cancel');
           };
 

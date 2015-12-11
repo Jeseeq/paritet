@@ -83,4 +83,8 @@
 .my-animation.ng-leave        { animation:slideOutLeft 0.5s both ease-in; }
 
 
+.radio input[type="radio"]{
+    outline: none;
+}
+
 
