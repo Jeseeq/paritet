@@ -9,7 +9,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
       last_name: Authentication.user.lastName || ''
     };
 
-
     $scope.openModal = function () {
 
       var modalInstance = $uibModal.open({

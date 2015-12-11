@@ -8,7 +8,8 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6" popover-placement="right" uib-popover="Виберіть один із пунктів" popover-trigger="mouseenter">
+
+    <div class="col-md-6" popover-placement="right" uib-popover="Виберіть один із пунктів" popover-trigger = 'none' popover-is-open = "!data.questions[0].selected">
       <uib-accordion close-others="false">
         <uib-accordion-group heading="{{data.questions[0].title}}"  is-open="true">
           <div class="radio" ng-repeat="answer in data.questions[0].answers">

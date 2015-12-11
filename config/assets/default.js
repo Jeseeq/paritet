@@ -14,13 +14,14 @@ module.exports = {
         'public/unify/css/plugins/*.css',
         'public/unify/css/plugins/line-icons/*.css',
         'public/unify/plugins/font-awesome/css/font-awesome.min.css',
-        'public/unify/plugins/hover-effects/css/custom-hover-effects.css'
+        'public/unify/plugins/revolution-slider/rs-plugin/css/settings.css',
+        'public/unify/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
+        'public/unify/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css'
 
       ],
       js: [
         
         'public/lib/jquery/dist/jquery.js',
-        //'public/lib//jquery-migrate/jquery-migrate.js',
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
 
         'public/lib/angular/angular.js',
@@ -41,20 +42,11 @@ module.exports = {
         'public/lib/angular-ui-mask/dist/mask.js',
        
 
-
-
-        'public/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js',
-        //'public/unify/plugins/layer-slider/layerslider/js/greensock.js',
-        //'public/unify/plugins/layer-slider/layerslider/js/layerslider.transitions.js',
-        //'public/unify/plugins/layer-slider/layerslider/js/layerslider.kreaturamedia.jquery.js',
         'public/unify/js/plugins/revolution-slider.js',
         'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js',
         'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js',
 
         'public/unify/js/app.js',
-        //'public/unify/js/plugins/layer-slider.js',
-        'public/unify/js/plugins/owl-carousel.js',
-        'public/unify/js/plugins/owl-recent-works.js',
         
         'public/unify/plugins/smoothScroll.js',
         'public/unify/plugins/back-to-top.js'

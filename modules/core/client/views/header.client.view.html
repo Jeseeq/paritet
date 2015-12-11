@@ -1,7 +1,7 @@
 <div class="container" ng-controller="HeaderController">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
-      <span class="sr-only">Toggle navigation</span>
+      <span class="sr-only">Меню</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -26,14 +26,14 @@
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Вход</a>
+        <a ui-sref="authentication.signin"  tooltip-placement="bottom" uib-tooltip="Вход в личный кабинет">Вход</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
       <li class="dropdown" dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
-          <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"  tooltip-placement="bottom" uib-tooltip=" Управление аккаунтом">
+          <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.username}}" class="header-profile-image"  />
+          <span ng-bind="authentication.user.username"></span> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active">
@@ -44,9 +44,6 @@
           </li>
           <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
             <a ui-sref="settings.password">Изменить пароль</a>
-          </li>
-          <li ui-sref-active="active">
-            <a ui-sref="settings.accounts">Manage Social Accounts</a>
           </li>
           <li class="divider"></li>
           <li>
