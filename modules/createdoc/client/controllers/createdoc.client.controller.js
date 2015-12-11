@@ -16,7 +16,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
     $scope.openModal = function () {
 
       var modalInstance = $uibModal.open({
-        animation: false,
+        animation: true,
         templateUrl: 'myModalContent.html',
         controller: function ($scope, $uibModalInstance, data, person) {
 

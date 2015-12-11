@@ -8,10 +8,12 @@
   <div class="row">
     <div class="col-md-6">
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[0].title}}" is-open="isOpen"  template-url="accordion-group.html"  popover-placement="left" uib-popover="Виберіть один із пунктів" popover-trigger = 'none' popover-is-open = "!data.questions[0].selected">
+        <uib-accordion-group heading="{{data.questions[0].title}}" is-open="isOpen"  template-url="accordion-group.html">
           <div class="radio" ng-repeat="answer in data.questions[0].answers">
             <label><input type="radio" name="{{data.questions[0].id}}" value="{{answer.id}}" ng-model="data.questions[0].selected"  ng-click = "openModal()">{{answer.content}}</label>
+
            </div>
+          <div class=" col-md-4 col-md-offset-2" popover-placement="right" uib-popover="Виберіть один із пунктів" popover-trigger = 'none' popover-is-open = "!data.questions[0].selected"></div>
         </uib-accordion-group>
       </uib-accordion>
     </div>
