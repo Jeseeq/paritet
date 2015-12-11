@@ -1,4 +1,3 @@
-
 <section ui-view>
 
   <div class="page-header">
@@ -6,12 +5,10 @@
       {{data.title}}
     </h1>
   </div>
-
   <div class="row">
-
-    <div class="col-md-6" popover-placement="right" uib-popover="Виберіть один із пунктів" popover-trigger = 'none' popover-is-open = "!data.questions[0].selected">
+    <div class="col-md-6">
       <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[0].title}}" is-open="isOpen"  template-url="accordion-group.html">
+        <uib-accordion-group heading="{{data.questions[0].title}}" is-open="isOpen"  template-url="accordion-group.html"  popover-placement="left" uib-popover="Виберіть один із пунктів" popover-trigger = 'none' popover-is-open = "!data.questions[0].selected">
           <div class="radio" ng-repeat="answer in data.questions[0].answers">
             <label><input type="radio" name="{{data.questions[0].id}}" value="{{answer.id}}" ng-model="data.questions[0].selected"  ng-click = "openModal()">{{answer.content}}</label>
            </div>
@@ -76,25 +73,24 @@
   </div>
 
 
-
-  <!--<script type="text/ng-template" id="myModalContent.html">-->
-    <!--<div class="modal-header">-->
-      <!--<button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-hidden="true">&times;</button>-->
-      <!--<h4 class="modal-title">Заповніть дані</h4>-->
-    <!--</div>-->
-    <!--<div class="modal-body">-->
-      <!--<form class="form-horizontal sky-form">-->
-        <!--<fieldset>-->
-        <!--<formly-form model="vm.person" fields="vm.YurPersonFields" form="vm.YurPersonForm">-->
-        <!--</formly-form>-->
-          <!--</fieldset>-->
-      <!--</form>-->
-    <!--</div>-->
-    <!--<div class="modal-footer">-->
-      <!--<button class="btn btn-primary" type="button" ng-click="ok()">Сохранить</button>-->
-      <!--<button class="btn btn-warning" type="button" ng-click="cancel()">Выход</button>-->
-    <!--</div>-->
-  <!--</script>-->
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">Заповніть дані</h4>
+    </div>
+    <div class="modal-body">
+      <form class="form-horizontal sky-form">
+        <fieldset>
+        <formly-form model="vm.person" fields="vm.YurPersonFields" form="vm.YurPersonForm" options="vm.options">
+        </formly-form>
+        </fieldset>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="close()">Сохранить</button>
+      <button class="btn btn-warning" type="button" ng-click="cancelAndReset()" >Выход</button>
+    </div>
+  </script>
 
 
   <script type="text/ng-template" id="accordion-group.html">
@@ -111,23 +107,9 @@
   </script>
 
 
-
-
-  <modal title="Заповніть дані" visible="showModal">
-      <form role="form" class="form-horizontal sky-form">
-        <fieldset>
-          <formly-form model="vm.person" fields="vm.YurPersonFields" form="vm.YurPersonForm">
-          </formly-form>
-        </fieldset>
-      </form>
-      <button ng-click="closeAndReset()" type="submit" class="btn btn-default">Submit</button>
-  </modal>
-
-
-
-
   <pre>{{person | json}}</pre>
-<pre>{{authentication | json}}</pre>
+  <pre>{{authentication | json}}</pre>
   <pre>{{data | json}}</pre>
+
 </section>
 

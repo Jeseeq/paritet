@@ -9,7 +9,10 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
       last_name: Authentication.user.lastName || ''
     };
 
+    //Accordion open on heading
     $scope.isOpen = true;
+
+    //Modal open function
     $scope.openModal = function () {
 
       var modalInstance = $uibModal.open({
@@ -17,16 +20,21 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
         templateUrl: 'myModalContent.html',
         controller: function ($scope, $uibModalInstance, data, person) {
 
-
-          //Modal window close function
-          $scope.cancel = function () {
+          //Modal window close functions
+          $scope.close = function () {
+            $uibModalInstance.dismiss('cancel');
+          };
+          $scope.cancelAndReset = function(){
+            vm.options.resetModel();
             $uibModalInstance.dismiss('cancel');
           };
 
-
           var vm = this;
+          //pass injected data
           vm.person = person;
           vm.data = data;
+
+          // Formly fields
           vm.YurPersonFields = [
             {
               key: 'first_name',
@@ -116,6 +124,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
         },
         controllerAs: 'vm',
         size: 'md',
+        //resolve data inject
         resolve: {
           data: function () {
             return $scope.data;
@@ -126,17 +135,10 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
         }
       });
 
-
-
       modalInstance.result.then(function () {
         $log.info('Modal dismissed at: ' + new Date());
       });
     };
-
-
-
-
-
   }
   ]);
 
