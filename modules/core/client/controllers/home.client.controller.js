@@ -42,22 +42,22 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 // animation. As such, I'm using the ng-leave workflow to learn more about the
 // ngAnimate module.
 angular.module('core').directive(
-    "mAppLoading",
-    function( $animate ) {
+    'mAppLoading',
+    function($animate) {
       // Return the directive configuration.
       return({
         link: link,
-        restrict: "C"
+        restrict: 'C'
       });
       // I bind the JavaScript events to the scope.
-      function link( scope, element, attributes ) {
+      function link(scope, element, attributes) {
         // Due to the way AngularJS prevents animation during the bootstrap
         // of the application, we can't animate the top-level container; but,
         // since we added "ngAnimateChildren", we can animated the inner
         // container during this phase.
         // --
         // NOTE: Am using .eq(1) so that we don't animate the Style block.
-        $animate.leave( element.children().eq( 1 ) ).then(
+        $animate.leave(element.children().eq(1)).then(
             function cleanupAfterAnimation() {
               // Remove the root directive element.
               element.remove();

@@ -16,6 +16,14 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
         animation: false,
         templateUrl: 'myModalContent.html',
         controller: function ($scope, $uibModalInstance, data, person) {
+
+
+          //Modal window close function
+          $scope.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
+          };
+
+
           var vm = this;
           vm.person = person;
           vm.data = data;
@@ -118,10 +126,13 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
         }
       });
 
+
+
       modalInstance.result.then(function () {
         $log.info('Modal dismissed at: ' + new Date());
       });
     };
+
 
 
 
