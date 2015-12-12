@@ -6,7 +6,6 @@ angular.module('createdoc').run(['Menus','formlyConfig',
     Menus.addMenuItem('topbar', {
       title: 'Создать документ',
       state: 'createdoc',
-      position: '1',
       type: 'item'
     });
   
