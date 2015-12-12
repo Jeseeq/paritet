@@ -208,7 +208,7 @@ exports.listCompany = function (req, res){
   var query = req.query.name;
   //var result = {};
   console.log(query);
-  Company.find({ 'name': { $regex: new RegExp("^" + query.toLowerCase(), "i") } }).exec(function(err, company){
+  Company.find({ 'name': { $regex: new RegExp(query.toLowerCase(), "i") } }).exec(function(err, company){
     var result = {};
     result.results = company;
     res.json(result);

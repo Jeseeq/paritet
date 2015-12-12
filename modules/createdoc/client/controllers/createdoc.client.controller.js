@@ -129,7 +129,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               key: 'awesomeAddress',
               type: 'async-ui-select',
               templateOptions: {
-                label: 'Address',
+                label: 'Назва(або шо угодно)',
                 placeholder: 'тут може бути вибор суду асинхронно',
                 valueProp: 'name',
                 labelProp: 'name',
