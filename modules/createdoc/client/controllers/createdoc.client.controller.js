@@ -149,7 +149,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             if (!address) {
               promise = $q.when({ data: { results: [] } });
             } else {
-              var params = { name: address};
+              var params = { name: address };
               var endpoint = '/api/company';
               promise = $http.get(endpoint, { params: params });
             }

@@ -1,14 +1,8 @@
 'use strict';
 
-angular.module('createdoc').run(['Menus','formlyConfig',
-  function (Menus, formlyConfig) {
-    // Set top bar menu items
-    Menus.addMenuItem('topbar', {
-      title: 'Создать документ',
-      state: 'createdoc',
-      type: 'item'
-    });
-  
+angular.module('createdoc').run(['formlyConfig',
+  function (formlyConfig) {
+
 
     formlyConfig.setType({
       name: 'maskedInput',
