@@ -126,7 +126,8 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
   formlyConfigProvider.setType({
     name: 'async-ui-select',
     extends: 'select',
-    templateUrl: 'async-ui-select-type.html'
+    templateUrl: 'async-ui-select-type.html',
+    wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
   });
 
 

@@ -26,6 +26,11 @@ module.exports = function (app) {
     .get(documents.readCategory)
     .put(documents.updateCategory)
     .delete(documents.deleteCategory);
+
+
+  app.route('/api/company').all(documentsPolicy.isAllowed)
+      .get(documents.listCompany)
+      .post(documents.createCompany);
  
   // Finish by binding the article middleware
   app.param('documentId', documents.NewDocumentByID);

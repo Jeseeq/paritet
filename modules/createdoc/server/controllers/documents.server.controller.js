@@ -9,6 +9,7 @@ var path = require('path'),
   mongoose = require('mongoose'),
   lawDocument = mongoose.model('Document'),
   DocumentCategory = mongoose.model('DocumentCategory'),
+  Company = mongoose.model('Company'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -198,3 +199,26 @@ exports.categoryByID = function (req, res, next, id) {
 
 
 
+
+// search company
+
+
+
+exports.listCompany = function (req, res){
+  var query = req.query.name;
+  //var result = {};
+  console.log(query);
+  Company.find({ 'name': { $regex: new RegExp("^" + query.toLowerCase(), "i") } }).exec(function(err, company){
+    var result = {};
+    result.results = company;
+    res.json(result);
+  });
+};
+
+exports.createCompany = function (req, res){
+  console.log('try save');
+  var company = new Company(req.body);
+  company.save(function(err, company){
+    res.json(company);
+  });
+};

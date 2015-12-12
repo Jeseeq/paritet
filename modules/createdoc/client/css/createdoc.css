@@ -87,4 +87,8 @@
     outline: none;
 }
 
+/*prevent body scroll*/
+body.modal-open {
+    overflow: hidden !important;
+}
 

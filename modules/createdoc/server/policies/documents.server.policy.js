@@ -26,7 +26,12 @@ exports.invokeRolesPolicies = function () {
     },{
       resources: '/api/category/:categoryId',
       permissions: '*'
+    },{
+      resources: '/api/company',
+      permissions: '*'
     }
+
+
     ]
   }, {
     roles: ['user'],
@@ -36,7 +41,11 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/documents/:documentId',
       permissions: ['get']
-    }]
+    },{
+      resources: '/api/company',
+      permissions: ['get', 'post']
+    }
+    ]
   }, {
     roles: ['guest'],
     allows: [{

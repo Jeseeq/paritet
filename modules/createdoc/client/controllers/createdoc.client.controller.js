@@ -125,19 +125,19 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               }
             },
 
-            //{
-            //  key: 'awesomeAddress',
-            //  type: 'async-ui-select',
-            //  templateOptions: {
-            //    label: 'Address',
-            //    placeholder: 'Example of Async Select',
-            //    valueProp: 'formatted_address',
-            //    labelProp: 'formatted_address',
-            //    options: [],
-            //    refresh: refreshAddresses,
-            //    refreshDelay: 0
-            //  }
-            //}
+            {
+              key: 'awesomeAddress',
+              type: 'async-ui-select',
+              templateOptions: {
+                label: 'Address',
+                placeholder: 'тут може бути вибор суду асинхронно',
+                valueProp: 'name',
+                labelProp: 'name',
+                options: [],
+                refresh: refreshAddresses,
+                refreshDelay: 0
+              }
+            }
 
 
 
@@ -147,11 +147,11 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
           function refreshAddresses(address, field) {
             var promise;
             if (!address) {
-              promise = $q.when({data: {results: []}});
+              promise = $q.when({ data: { results: [] } });
             } else {
-              var params = {address: address, sensor: false};
-              var endpoint = '//maps.googleapis.com/maps/api/geocode/json';
-              promise = $http.get(endpoint, {params: params});
+              var params = { name: address};
+              var endpoint = '/api/company';
+              promise = $http.get(endpoint, { params: params });
             }
             return promise.then(function(response) {
               field.templateOptions.options = response.data.results;
