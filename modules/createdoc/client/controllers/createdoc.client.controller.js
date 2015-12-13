@@ -41,19 +41,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
           // Formly fields
           vm.YurPersonFields = [
             {
-              key: 'first_name',
-              type: 'horizontalInput',
-              templateOptions: {
-                type: 'text',
-                label: 'Ім`я',
-                placeholder: 'Введіть ім`я',
-                required: true
-              },
-              hideExpression : function(){
-                return (vm.data.questions[0].selected === '1');
-              }
-            },
-            {
               key: 'last_name',
               type: 'horizontalInput',
               templateOptions: {
@@ -66,6 +53,20 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 return (vm.data.questions[0].selected === '1');
               }
             },
+            {
+              key: 'first_name',
+              type: 'horizontalInput',
+              templateOptions: {
+                type: 'text',
+                label: 'Ім`я',
+                placeholder: 'Введіть ім`я',
+                required: true
+              },
+              hideExpression : function(){
+                return (vm.data.questions[0].selected === '1');
+              }
+            },
+
             {
               key: 'second_name',
               type: 'horizontalInput',
@@ -80,6 +81,19 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               }
             },
             {
+              key: 'name',
+              type: 'horizontalInput',
+              templateOptions: {
+                type: 'text',
+                label: 'Найменування відповідача',
+                placeholder: 'Найменування відповідача',
+                required: true
+              },
+              hideExpression : function(){
+                return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
+              }
+            },
+            {
               key: 'address',
               type: 'horizontalGoogleInput',
               templateOptions: {
@@ -90,19 +104,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 googleAutocomplete: ''
               }
             },
-            {
-              key: 'name',
-              type: 'horizontalInput',
-              templateOptions: {
-                type: 'text',
-                label: 'Назва',
-                placeholder: 'Назва',
-                required: true
-              },
-              hideExpression : function(){
-                return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
-              }
-            },
+
             {
               key: 'code_edrp',
               type: 'horizontalInput',
