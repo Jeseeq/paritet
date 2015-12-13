@@ -17,7 +17,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
     $scope.openModal = function () {
 
       var modalInstance = $uibModal.open({
-        animation: false,
+        animation: true,
         templateUrl: 'myModalContent.html',
         controller: function ($q, $http, $scope, $uibModalInstance, data, person) {
 
@@ -94,6 +94,19 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               }
             },
             {
+              key: 'code_edrp',
+              type: 'horizontalInput',
+              templateOptions: {
+                type: 'text',
+                label: 'Код ЄДРПОУ',
+                placeholder: 'Введіть код ЄДРПОУ Відповідача (8 цифр)',
+                required: true
+              },
+              hideExpression : function(){
+                return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
+              }
+            },
+            {
               key: 'address',
               type: 'horizontalGoogleInput',
               templateOptions: {
@@ -104,18 +117,17 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                 googleAutocomplete: ''
               }
             },
-
             {
-              key: 'code_edrp',
+              key: 'name',
               type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
-                label: 'Код ЄДРПОУ',
-                placeholder: 'ЄДРПОУ',
+                label: 'ІПН відповідача',
+                placeholder: 'ІПН відповідача',   //10 числовых символов
                 required: true
               },
               hideExpression : function(){
-                return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
+                return (vm.data.questions[0].selected === '1');
               }
             },
             {
@@ -164,7 +176,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
 
         },
         controllerAs: 'vm',
-        size: 'lg',
+        size: 'md',
         //resolve data inject
         resolve: {
           data: function () {
