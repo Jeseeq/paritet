@@ -10,7 +10,7 @@
   <div class="row document-link">
     <uib-accordion close-others="true">
     <div class="col-md-4">
-      <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 0">
+      <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 0" class="rounded">
       <div ng-repeat="document in category.documents" class="btn-block">
          <a ui-sref="document({documentId: document._id})" class="btn-u btn-u-sm btn-block btn-u-blue">{{document.title}} </a>
      </div>

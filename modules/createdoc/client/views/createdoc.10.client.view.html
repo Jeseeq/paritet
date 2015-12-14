@@ -92,15 +92,15 @@
 
     </div>
     <div class="modal-footer">
-      <button class="btn-u" type="button" ng-click="close()">Сохранить</button>
-      <button class="btn-u btn-u-default" type="button" ng-click="cancelAndReset()" >Выход</button>
+      <button class="btn-u rounded" type="button" ng-click="close()">Сохранить</button>
+      <button class="btn-u btn-u-default rounded" type="button" ng-click="cancelAndReset()" >Выход</button>
     </div>
   </script>
 
 
   <script type="text/ng-template" id="accordion-group.html">
-  <div class="panel {{panelClass || 'panel-default'}}">
-    <div class="abc panel-heading" ng-keypress="toggleOpen($event)" ng-click="toggleOpen()" >
+  <div class="panel {{panelClass || 'panel-default'}} rounded">
+    <div class="abc panel-heading " ng-keypress="toggleOpen($event)" ng-click="toggleOpen()" >
       <h4 class="panel-title">
         <a href tabindex="0" class="accordion-toggle" uib-accordion-transclude="heading"><span ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
       </h4>

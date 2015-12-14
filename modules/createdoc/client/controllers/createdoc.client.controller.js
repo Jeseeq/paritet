@@ -144,7 +144,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               type: 'async-ui-select',
               templateOptions: {
                 label: 'Назва(або шо угодно)',
-                placeholder: 'тут може бути вибор суду асинхронно',
+                placeholder: 'тут може бути',
                 valueProp: 'name',
                 labelProp: 'name',
                 options: [],

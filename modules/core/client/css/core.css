@@ -1,6 +1,24 @@
+
+/*fix fonts TODO:rebuild bootstrap*/
+body
+ {
+  font-family:"Helvetica Neue", Helvetica, "DejaVu Sans", Arial, sans-serif!important;
+}
+
+html{font-family:"Helvetica Neue", Helvetica, "DejaVu Sans", Arial, sans-serif!important;}
+.navbar {font-family:"Helvetica Neue", Helvetica, "DejaVu Sans", Arial, sans-serif!important;}
+.sky-form  {font-family: inherit}
+
+.dropdown-menu{
+font-size: inherit!important;
+}
+
+.navbar-nav>li>a{
+  margin-bottom: 5px!important;
+}
 .content {
   margin-top: 40px;
-  padding-bottom: 5px;
+  padding-bottom: 5px!important;
   margin-bottom: 5px;
 }
 .undecorated-link:hover {
@@ -64,9 +82,6 @@ body {
 .pac-container {
   z-index: 1100 !important;
 }
-
-
-
 
 
 
