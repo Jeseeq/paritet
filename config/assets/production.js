@@ -4,8 +4,8 @@ module.exports = {
   client: {
     lib: {
       css: [
-        'public/lib/bootstrap/dist/css/bootstrap.min.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/dist/css/bootstrap.min.css',
+        //'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
         'public/unify/css/*.css',
         'public/unify/css/plugins/*.css',
         'public/unify/css/plugins/line-icons/*.css',
