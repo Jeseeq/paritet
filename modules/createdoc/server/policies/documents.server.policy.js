@@ -50,7 +50,7 @@ exports.invokeRolesPolicies = function () {
     },{
       resources: '/api/category/:categoryId',
       permissions: ['get']
-  }
+    }
     ]
   }, {
     roles: ['guest'],

@@ -7,7 +7,7 @@
   </div>
   <uib-tabset>
     <uib-tab heading="Створення документу">
-  <div class="row">
+  <div class="row padding-top-5">
     <div class="col-md-6 question">
       <uib-accordion close-others="false">
         <uib-accordion-group heading="{{data.questions[0].title}}" is-open="isOpen"  template-url="accordion-group.html">
@@ -24,15 +24,17 @@
            </div>
         </uib-accordion-group>
       </uib-accordion>
-      <uib-accordion close-others="false">
-        <uib-accordion-group heading="{{data.questions[2].title}}"  is-open="isOpen"  template-url="accordion-group.html">
-          <div class="radio" ng-repeat="answer in data.questions[2].answers"  ng-init="data.questions[2].selected = 1">
-            <label><input type="radio" name="{{data.questions[2].id}}" value="{{answer.id}}" ng-model="data.questions[2].selected">{{answer.content}}</label>
+      
+      <uib-accordion close-others="false" >
+        <uib-accordion-group heading="{{data.questions[2].title}}"  is-open="isOpen"  template-url="accordion-group.html" >
+          <div class="radio" ng-repeat="answer in data.questions[2].answers">
+            <label><input type="radio" name="{{data.questions[2].id}}" value="{{answer.id}}" ng-model="data.questions[2].selected"  ng-click = "openModalQuestionThree()">{{answer.content}}</label>
           </div>
         </uib-accordion-group>
       </uib-accordion>
 
-    <div class="my-animation" ng-if="data.questions[2].selected !== '2'">
+    <!--<div class="my-animation" ng-if="data.questions[2].selected !== '2'">-->
+
       <uib-accordion close-others="false">
         <uib-accordion-group heading="{{data.questions[3].title}}"  is-open="isOpen"  template-url="accordion-group.html" >
           <div class="radio" ng-repeat="answer in data.questions[3].answers"  ng-init="data.questions[3].selected = 1">
@@ -40,7 +42,7 @@
           </div>
         </uib-accordion-group>
       </uib-accordion>
-    </div>
+
 
       <uib-accordion close-others="false">
         <uib-accordion-group heading="{{data.questions[4].title}}"  is-open="isOpen"  template-url="accordion-group.html" >
@@ -207,7 +209,7 @@
   <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" ng-click="cancelAndReset()" aria-hidden="true">&times;</button>
-      <h4 class="modal-title">Заповніть дані про юридичну особу</h4>
+      <h4 class="modal-title">Заповніть дані про {{personType()}}</h4>
     </div>
     <div class="modal-body">
 

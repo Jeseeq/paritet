@@ -42,10 +42,10 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
   formlyConfigProvider.setWrapper({
     name: 'horizontalBootstrapLabel',
     template: [
-      '<label for="{{::id}}" class="col-sm-4 control-label">',
+      '<label for="{{::id}}" class="col-sm-4">',
       '{{to.label}} {{to.required ? "*" : ""}}',
       '</label>',
-      '<div class="col-sm-6">',
+      '<div class="col-sm-8 input">',
       '<formly-transclude></formly-transclude>',
       '</div>'
     ].join(' ')

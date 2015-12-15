@@ -10,7 +10,7 @@
   <div class="row document-link">
     <uib-accordion close-others="true">
     <div class="col-md-4">
-      <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 0" class="rounded">
+      <uib-accordion-group heading="{{category.category}}" ng-repeat="category in categories" ng-if="$index % 3 === 0" class="rounded" template-url="accordion-group.html">
       <div ng-repeat="document in category.documents" class="btn-block">
          <a ui-sref="document({documentId: document._id})" class="btn-u btn-u-sm btn-block btn-u-blue">{{document.title}} </a>
      </div>
@@ -38,3 +38,18 @@
 </div>
 
 </section>
+
+
+
+<script type="text/ng-template" id="accordion-group.html">
+  <div class="panel {{panelClass || 'panel-default'}} rounded">
+    <div class="abc panel-heading " ng-keypress="toggleOpen($event)" ng-click="toggleOpen()" >
+      <h4 class="panel-title">
+        <a href tabindex="0" class="accordion-toggle" uib-accordion-transclude="heading"><span ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+      </h4>
+    </div>
+    <div class="panel-collapse collapse" uib-collapse="!isOpen">
+      <div class="panel-body" ng-transclude></div>
+    </div>
+  </div>
+</script>
