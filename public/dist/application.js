@@ -908,7 +908,7 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], ["formlyConfigProvide
   formlyConfigProvider.setWrapper({
     name: 'horizontalBootstrapLabel',
     template: [
-      '<label for="{{::id}}" class="col-sm-4">',
+      '<label for="{{::id}}" class="col-sm-4 control-label">',
       '{{to.label}} {{to.required ? "*" : ""}}',
       '</label>',
       '<div class="col-sm-8 input">',
