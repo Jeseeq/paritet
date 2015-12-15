@@ -89,9 +89,8 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'name',
-              type: 'horizontalInput',
+              type: 'horizontalInputIcon',
               templateOptions: {
-                type: 'text',
                 label: 'Найменування відповідача',
                 placeholder: 'Найменування відповідача',
                 required: true
@@ -102,62 +101,129 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             },
             {
               key: 'code_edrp',
-              type: 'horizontalInput',
+              type: 'horizontalMaskedInput',
               templateOptions: {
-                type: 'text',
                 label: 'Код ЄДРПОУ',
                 placeholder: 'Введіть код ЄДРПОУ Відповідача (8 цифр)',
-                required: true
+                required: true,
+                mask: '9999-9999'
               },
               hideExpression : function(){
                 return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
               }
             },
             {
+              "className": "section-label",
               "template": "<hr class='devider devider-db'/>"
             },
             {
-              key: 'address',
-              type: 'horizontalGoogleInput',
-              templateOptions: {
-                type: 'text',
-                label: 'Адреса',
-                placeholder: '',
-                required: true,
-                googleAutocomplete: ''
-              }
+              "className": "section-label2",
+              "template": "<div class='heading'>Адреса Відповідача</div>"
             },
+            //{
+            //  key: 'address',
+            //  type: 'horizontalGoogleInput',
+            //  templateOptions: {
+            //    type: 'text',
+            //    label: 'Адреса',
+            //    placeholder: '',
+            //    required: true,
+            //    googleAutocomplete: ''
+            //  }
+            //},
             {
-              "className": "row",
+              "className": "row padding-1px",
               "fieldGroup": [
                 {
-                  "className": "input col col-6",
+                  "className": "input col col-4",
                   "type": "input",
-                  "key": "address.address_components",
+                  "key": "city",
                   "templateOptions": {
-                    "label": "Вулиця"
+                    "placeholder": "Місто",
+                    required: true
                   }
                 },
                 {
                   "className": "input col col-4",
                   "type": "input",
-                  "key": "address.address_components[0].long_name",
+                  "key": "department",
                   "templateOptions": {
-                    "label": "Місто"
+                    "placeholder": "Область",
+                    required: true
+                  }
+                },
+                {
+                  "className": "input col col-4",
+                  "type": "input",
+                  "key": "region",
+                  "templateOptions": {
+                    "placeholder": "Район",
+                    required: true
+                  }
+                },
+                {
+                  "className": "input col col-6",
+                  "type": "input",
+                  "key": "street",
+                  "templateOptions": {
+                    "placeholder": "Вулиця",
+                    required: true
                   }
                 },
                 {
                   "className": "input col col-2",
                   "type": "input",
+                  "key": "house",
+                  "templateOptions": {
+                    "placeholder": "№ буд"
+                  }
+                },
+                {
+                  "className": "input col col-2",
+                  "type": "input",
+                  "key": "block",
+                  "templateOptions": {
+                    "placeholder": "Корпус"
+                  }
+                },
+                {
+                  "className": "input col col-2",
+                  "type": "input",
+                  "key": "apartment",
+                  "templateOptions": {
+                    "placeholder": "Квартира"
+                  }
+                },
+
+                {
+                  "className": "input col col-6",
+                  "type": "horizontalInput",
+                  "key": "email",
+                  "templateOptions": {
+                    label: 'Email',
+                    "placeholder": "example@gmail.com",
+                    "required": true,
+                    "type": "email",
+                    "maxlength": 10,
+                    "minlength": 6
+                  }
+                },
+                {
+                  "className": "input col col-4 col-xs-offset-2",
+                  "type": "input",
                   "key": "zip",
                   "templateOptions": {
                     "type": "number",
-                    "label": "Індекс",
+                    "placeholder": "Індекс",
                     "max": 99999,
                     "min": 0,
                     "pattern": "\\d{5}"
                   }
-                }
+                },
+
+
+
+
               ]
             },
             {

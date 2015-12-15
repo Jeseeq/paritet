@@ -6,8 +6,14 @@ angular.module('createdoc').run(['formlyConfig',
 
     formlyConfig.setType({
       name: 'maskedInput',
-      extends: 'input',
-      template: '<input class="form-control" ng-model="model[options.key]" />',
+      template: [
+        '<label for="{{::id}}" class="col col-4 control-label">',
+        '{{to.label}} {{to.required ? "*" : ""}}',
+        '</label>',
+        '<div class=" col col-8 input">',
+        '<input class="input" ng-model="model[options.key]" />',
+        '</div>'
+      ].join(' '),
       defaultOptions: {
         ngModelAttrs: {
           mask: {
@@ -42,10 +48,10 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
   formlyConfigProvider.setWrapper({
     name: 'horizontalBootstrapLabel',
     template: [
-      '<label for="{{::id}}" class="col-sm-4 control-label">',
+      '<label for="{{::id}}" class="col col-4 control-label">',
       '{{to.label}} {{to.required ? "*" : ""}}',
       '</label>',
-      '<div class="col-sm-8 input">',
+      '<div class=" col col-8 input">',
       '<formly-transclude></formly-transclude>',
       '</div>'
     ].join(' ')
@@ -66,34 +72,50 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
     wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
   });
 
-
   formlyConfigProvider.setType({
-    name:'placeAutoComplete',
-    template:"<label class='control-label' ng-if='to.label'>{{to.label}}</label>" +
-    "<input g-places-autocomplete class='form-control' ng-model='model[options.key]'" +
-    "ng-attr-options='to.autocompleteOptions'" +
-    "ng-attr-force-selection='to.forceSelection'/>",
-    link: function(scope, el, attrs) {},
-  });
-
-
-  formlyConfigProvider.setType({
-    name: 'horizontalGoogleInput',
-    extends: 'input',
+    name: 'horizontalInputIcon',
     wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
-    defaultOptions: {
-      ngModelAttrs: {
-        googleAutocomplete: {
-          attribute: 'g-places-autocomplete'
-        }
-      }
-    }
+    template: [
+      '<div class = "row">',
+      '<div class="col col-10 input">',
+      '<input  class="input form-control" ng-model="model[options.key]">',
+      '</div>',
+      '<div class="col col-1">',
+      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info" popover-placement="right" uib-popover="Пояснення до іконки">',
+      '</i>',
+      '</div>',
+      '</div>'
+    ].join(' ')
   });
+
+
+  //formlyConfigProvider.setType({
+  //  name:'placeAutoComplete',
+  //  template:"<label class='control-label' ng-if='to.label'>{{to.label}}</label>" +
+  //  "<input g-places-autocomplete class='form-control' ng-model='model[options.key]'" +
+  //  "ng-attr-options='to.autocompleteOptions'" +
+  //  "ng-attr-force-selection='to.forceSelection'/>",
+  //  link: function(scope, el, attrs) {},
+  //});
+
+  //
+  //formlyConfigProvider.setType({
+  //  name: 'horizontalGoogleInput',
+  //  extends: 'input',
+  //  wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
+  //  defaultOptions: {
+  //    ngModelAttrs: {
+  //      googleAutocomplete: {
+  //        attribute: 'g-places-autocomplete'
+  //      }
+  //    }
+  //  }
+  //});
 
   formlyConfigProvider.setType({
     name: 'horizontalMaskedInput',
     extends: 'input',
-    template: '<input class="form-control" ng-model="model[options.key]" />',
+    template: '<input class="form-control" ng-model="model[options.key]"/>',
     defaultOptions: {
       ngModelAttrs: {
         mask: {

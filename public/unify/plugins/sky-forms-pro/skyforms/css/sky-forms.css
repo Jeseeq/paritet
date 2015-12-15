@@ -493,8 +493,8 @@
 .sky-form .col {
 	float: left;
 	min-height: 1px;
-	padding-right: 15px;
-	padding-left: 15px;
+	padding-right: 16px;
+	padding-left: 16px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
