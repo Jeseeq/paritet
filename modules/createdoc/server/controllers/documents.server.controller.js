@@ -217,7 +217,7 @@ exports.createCompany = function (req, res){
   console.log('try save');
   var company = new Company(req.body);
   company.save(function(err, company){
-
+    console.log(err);
     var user = new User(req.body.user);
     User.findById(req.user.id, function(err, resp){
       resp.companies.push(company._id);
