@@ -39,11 +39,11 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/document',
       permissions: ['get']
     }, {
-      resources: '/api/documents/:documentId',
+      resources: '/api/document/:documentId',
       permissions: ['get']
     },{
       resources: '/api/company',
-      permissions: ['get']
+      permissions: ['get', 'post']
     },{
       resources: '/api/category',
       permissions: ['get']

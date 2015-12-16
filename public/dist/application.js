@@ -1115,13 +1115,17 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
     //Accordion open on heading
     $scope.isOpen = true;
 
+
+
+
+
     //Modal open function
     $scope.openModal = function () {
 
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'myModalContent.html',
-        controller: function ($q, $http, $scope, $uibModalInstance, data, person) {
+        controller: function ($q, $http, $scope, $uibModalInstance, data, person, Company, Authentication) {
 
 
           //Header title select
@@ -1130,8 +1134,38 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
             else if (data.questions[0].selected === '2') return 'фізичну особу - підприємця';
             else if (data.questions[0].selected === '3') return 'фізичну особу';
           };
+
+
+          //create company on save(modal)
+          $scope.create = function () {
+
+
+            var company = new Company({
+              user: Authentication.user,
+              name: person.name,
+              city: person.city,
+              department: person.department,
+              region: person.region,
+              house: person.house,
+              block: person.block,
+              apartment: person.apartment,
+              zip: person.zip,
+              phone: person.phone,
+              email: person.email
+            });
+
+            // Redirect after save
+            company.$save(function (response) {
+
+            }, function (errorResponse) {
+              $scope.error = errorResponse.data.message;
+            });
+          };
+
+
           //Modal window close functions
           $scope.close = function () {
+            $scope.create();
             $uibModalInstance.dismiss('cancel');
           };
           $scope.cancelAndReset = function(){
@@ -1294,21 +1328,9 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                   }
                 },
 
+
                 {
-                  "className": "input col col-6",
-                  "type": "horizontalInput",
-                  "key": "email",
-                  "templateOptions": {
-                    label: 'Email',
-                    "placeholder": "example@gmail.com",
-                    "required": true,
-                    "type": "email",
-                    "maxlength": 10,
-                    "minlength": 6
-                  }
-                },
-                {
-                  "className": "input col col-4 col-xs-offset-2",
+                  "className": "input col col-4 col-xs-offset-8",
                   "type": "input",
                   "key": "zip",
                   "templateOptions": {
@@ -1319,17 +1341,13 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
                     "pattern": "\\d{5}"
                   }
                 },
-
-
-
-
               ]
             },
             {
               "template": "<hr class='devider devider-db' />"
             },
             {
-              key: 'name',
+              key: 'IPN',
               type: 'horizontalInput',
               templateOptions: {
                 type: 'text',
@@ -1339,6 +1357,19 @@ angular.module('createdoc').controller('CreatedocController', ['$scope', '$state
               },
               hideExpression : function(){
                 return (vm.data.questions[0].selected === '1');
+              }
+            },
+
+            {
+              "type": "horizontalInput",
+              "key": "email",
+              "templateOptions": {
+                label: 'Email',
+                "placeholder": "example@gmail.com",
+                "required": true,
+                "type": "email",
+                "maxlength": 10,
+                "minlength": 6
               }
             },
             {
@@ -1434,6 +1465,18 @@ angular.module('createdoc').factory('Document', ['$resource',
     });
   },
 ]);
+
+
+angular.module('createdoc').factory('Company', ['$resource',
+  function ($resource) {
+    return $resource('api/company', {
+      update: {
+        method: 'PUT'
+      }
+    });
+  },
+]);
+
 
 
 

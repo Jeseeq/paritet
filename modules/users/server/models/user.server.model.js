@@ -97,7 +97,8 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
-  }
+  },
+  companies:[{ type:Number, ref : 'Company' }]
 });
 
 /**

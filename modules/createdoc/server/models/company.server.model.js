@@ -19,14 +19,47 @@ var Company = new Schema({
   _id : { type: Number },
   name:{
     type: String,
-    default: 'default company',
+    default: '',
   },
-  address:{
-    type: String
+  city:{
+    type: String,
+    default: '',
   },
-  code:{
-    type: Number
-  }
+  department:{
+    type: String,
+    default: '',
+  },
+  region:{
+    type: String,
+    default: '',
+  },
+  house:{
+    type: String,
+    default: '',
+  },
+  block:{
+    type: String,
+    default: '',
+  },
+  apartment:{
+    type: String,
+    default: '',
+  },
+  zip:{
+    type: Number,
+    default: '',
+  },
+  phone:{
+    type: Number,
+    default: '',
+  },
+  email:{
+    type: String,
+    default: '',
+  },
+
+
+
 
 });
 Company.plugin(autoIncrement.plugin, 'Company');

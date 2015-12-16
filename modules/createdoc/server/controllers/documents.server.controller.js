@@ -3,13 +3,14 @@
 /**
  * Module dependencies.
  */
-
+var _ = require('lodash');
 var relationship = require('mongoose-relationship');
 var path = require('path'),
   mongoose = require('mongoose'),
   lawDocument = mongoose.model('Document'),
   DocumentCategory = mongoose.model('DocumentCategory'),
   Company = mongoose.model('Company'),
+  User = mongoose.model('User'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -197,9 +198,6 @@ exports.categoryByID = function (req, res, next, id) {
   });
 };
 
-
-
-
 // search company
 
 
@@ -219,6 +217,13 @@ exports.createCompany = function (req, res){
   console.log('try save');
   var company = new Company(req.body);
   company.save(function(err, company){
+
+    var user = new User(req.body.user);
+    User.findById(req.user.id, function(err, resp){
+      resp.companies.push(company._id);
+      resp.save(function(err){
+      });
+    });
     res.json(company);
   });
 };

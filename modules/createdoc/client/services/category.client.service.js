@@ -26,4 +26,16 @@ angular.module('createdoc').factory('Document', ['$resource',
 ]);
 
 
+angular.module('createdoc').factory('Company', ['$resource',
+  function ($resource) {
+    return $resource('api/company', {
+      update: {
+        method: 'PUT'
+      }
+    });
+  },
+]);
+
+
+
 
