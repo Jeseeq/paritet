@@ -81,7 +81,7 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
       '<input  class="input form-control" ng-model="model[options.key]">',
       '</div>',
       '<div class="col col-1">',
-      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info" popover-placement="right" uib-popover="Пояснення до іконки">',
+      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info"  uib-popover-template = {{options.templateOptions.PopOverTemplate}} popover-placement="right" popover-trigger="click">',
       '</i>',
       '</div>',
       '</div>'
@@ -146,6 +146,5 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
   });
 
 
-
-
 });
+

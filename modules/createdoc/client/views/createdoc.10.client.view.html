@@ -209,7 +209,7 @@
   <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header bg-grey">
       <button type="button" class="close" data-dismiss="modal" ng-click="cancelAndReset()" aria-hidden="true">&times;</button>
-      <h4 class="modal-title">Заповніть дані про {{personType()}}</h4>
+      <h4 class="modal-title">Заповніть дані про Відповідача - {{personType()}}</h4>
     </div>
     <div class="modal-body">
 
@@ -219,14 +219,28 @@
         </formly-form>
         </fieldset>
       </form>
-
-
     </div>
     <div class="modal-footer">
-      <button class="btn-u rounded" type="button" ng-click="close()">Сохранить</button>
+      <div class="row">
+      <div class="col-xs-6"><h6 style="text-align: left"><em>Поля позначені '*' - обов'язкові для заповнення</em></h6></div>
+      <div class="col-sx-6">
+      <button class="btn-u rounded" type="button" ng-disabled="vm.YurPersonForm.$invalid" ng-click="close()">Сохранить</button>
       <button class="btn-u btn-u-default rounded" type="button" ng-click="cancelAndReset()" >Выход</button>
+      </div>
+      </div>
     </div>
   </script>
+
+
+
+  <!--<script type="text/ng-template" id="popoverTemplate.html">-->
+    <!--<div>asdasdasd</div>-->
+    <!--<div class="form-group">-->
+      <!--<label>Popup Title:</label>-->
+      <!--<input type="text" class="form-control">-->
+    <!--</div>-->
+  <!--</script>-->
+
 
 
   <script type="text/ng-template" id="accordion-group.html">
@@ -240,6 +254,7 @@
       <div class="panel-body" ng-transclude></div>
     </div>
   </div>
+
   </script>
 
 
@@ -253,6 +268,8 @@
     </ui-select-choices>
   </ui-select>
   </script>
+
+
 
 
   <pre>{{person | json}}</pre>
