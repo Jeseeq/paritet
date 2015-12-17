@@ -38,8 +38,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
             else if (data.questions[0].selected === '3') return 'фізичну особу';
           };
 
-
-
           //create company on save(modal)
           $scope.create = function () {
 
@@ -189,17 +187,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
               "className": "section-label2",
               "template": "<div class='heading'>Адреса Відповідача</div>"
             },
-            //{
-            //  key: 'address',
-            //  type: 'horizontalGoogleInput',
-            //  templateOptions: {
-            //    type: 'text',
-            //    label: 'Адреса',
-            //    placeholder: '',
-            //    required: true,
-            //    googleAutocomplete: ''
-            //  }
-            //},
             {
               "className": "row padding-1px",
               "fieldGroup": [
@@ -307,7 +294,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
                     label : "Індекс",
                     mask: '99999'
                   }
-                },
+                }
               ]
             },
             {
@@ -326,7 +313,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
                 return (vm.data.questions[0].selected === '1');
               }
             },
-
             {
               key: 'phone',
               type: 'horizontalMaskedInput',
@@ -346,44 +332,8 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
                 "maxlength": 20,
                 "minlength": 6
               }
-            },
-
-
-            //{
-            //  key: 'awesomeAddress',
-            //  type: 'async-ui-select',
-            //  templateOptions: {
-            //    label: 'Назва(або шо угодно)',
-            //    placeholder: 'тут може бути',
-            //    valueProp: 'name',
-            //    labelProp: 'name',
-            //    options: [],
-            //    refresh: refreshAddresses,
-            //    refreshDelay: 0
-            //  }
-            //}
-
-
-
-          ];
-
-
-          function refreshAddresses(address, field) {
-            var promise;
-            if (!address) {
-              promise = $q.when({ data: { results: [] } });
-            } else {
-              var params = { name: address };
-              var endpoint = '/api/company';
-              promise = $http.get(endpoint, { params: params });
             }
-            return promise.then(function(response) {
-              field.templateOptions.options = response.data.results;
-            });
-          }
-
-
-
+          ];
         },
         controllerAs: 'vm',
         size: 'md',

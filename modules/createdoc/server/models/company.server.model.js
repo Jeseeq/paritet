@@ -54,7 +54,7 @@ var Company = new Schema({
     default: '',
   },
   phone:{
-    type: Number,
+    type: String,
     default: '',
   },
   email:{
