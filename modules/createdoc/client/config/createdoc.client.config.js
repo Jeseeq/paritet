@@ -88,6 +88,23 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
     ].join(' ')
   });
 
+  formlyConfigProvider.setType({
+    name: 'horizontalTypeaheadInputIcon',
+    wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
+    template: [
+      '<div class = "row">',
+      '<div class="col col-10 input">',
+      '<input type="text" ng-model="model[options.key]" typeahead-on-select="onSelect($item, $model, $label)"typeahead="item.name for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
+      '</div>',
+      '<div class="col col-1">',
+      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info"  uib-popover-template = {{options.templateOptions.PopOverTemplate}} popover-placement="right" popover-trigger="click">',
+      '</i>',
+      '</div>',
+      '</div>'
+    ].join(' ')
+  });
+
+
 
   //formlyConfigProvider.setType({
   //  name:'placeAutoComplete',
@@ -143,6 +160,12 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
     extends: 'select',
     templateUrl: 'async-ui-select-type.html',
     wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
+  });
+
+  formlyConfigProvider.setType({
+    name: 'typeahead',
+    template: '<input type="text" ng-model="model[options.key]" typeahead="item for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
+    wrapper: ['bootstrapLabel', 'bootstrapHasError']
   });
 
 

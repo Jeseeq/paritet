@@ -126,15 +126,39 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
             },
             {
               key: 'name',
-              type: 'horizontalInputIcon',
+              type: 'horizontalTypeaheadInputIcon',
               templateOptions: {
                 label: 'Найменування відповідача',
                 placeholder: 'Найменування відповідача',
                 required: true,
+                options: [],
                 PopOverTemplate: '\'modules/createdoc/client/views/popoverTemplate.html\''
               },
               hideExpression : function(){
                 return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
+              },
+              controller: /* @ngInject */ function($scope, $q) {
+
+                $scope.onSelect = function($item, $model, $label){
+                  $scope.model.apartment = $item.apartment;
+                  $scope.model.block = $item.block;
+                  $scope.model.city = $item.city;
+                  $scope.model.department = $item.department;
+                  $scope.model.email = $item.email;
+                  $scope.model.house = $item.house;
+                  $scope.model.name = $item.name;
+                  $scope.model.phone = $item.phone;
+                  $scope.model.region = $item.region;
+                  $scope.model.zip = $item.zip;
+                };
+
+                var promise;
+                var endpoint = '/api/company';
+                promise = $http.get(endpoint);
+                return promise.then(function(response) {
+                  $scope.to.options = response.data;
+                  //$scope.model =
+                });
               }
             },
             {
@@ -144,7 +168,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
                 label: 'Код ЄДРПОУ',
                 placeholder: 'Введіть код ЄДРПОУ Відповідача (8 цифр)',
                 required: true,
-                mask: '9999-9999'
+                mask: '99999999'
               },
               hideExpression : function(){
                 return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');

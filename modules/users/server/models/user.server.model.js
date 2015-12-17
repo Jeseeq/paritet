@@ -10,6 +10,10 @@ var mongoose = require('mongoose'),
   generatePassword = require('generate-password'),
   owasp = require('owasp-password-strength-test');
 
+
+
+//populate plugin
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 /**
  * A Validation function for local strategy properties
  */
@@ -203,5 +207,5 @@ UserSchema.statics.generateRandomPassphrase = function () {
     }
   });
 };
-
+UserSchema.plugin(deepPopulate);
 mongoose.model('User', UserSchema);

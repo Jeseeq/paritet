@@ -954,6 +954,23 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], ["formlyConfigProvide
     ].join(' ')
   });
 
+  formlyConfigProvider.setType({
+    name: 'horizontalTypeaheadInputIcon',
+    wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError'],
+    template: [
+      '<div class = "row">',
+      '<div class="col col-10 input">',
+      '<input type="text" ng-model="model[options.key]" typeahead-on-select="onSelect($item, $model, $label)"typeahead="item.name for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
+      '</div>',
+      '<div class="col col-1">',
+      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info"  uib-popover-template = {{options.templateOptions.PopOverTemplate}} popover-placement="right" popover-trigger="click">',
+      '</i>',
+      '</div>',
+      '</div>'
+    ].join(' ')
+  });
+
+
 
   //formlyConfigProvider.setType({
   //  name:'placeAutoComplete',
@@ -1009,6 +1026,12 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], ["formlyConfigProvide
     extends: 'select',
     templateUrl: 'async-ui-select-type.html',
     wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
+  });
+
+  formlyConfigProvider.setType({
+    name: 'typeahead',
+    template: '<input type="text" ng-model="model[options.key]" typeahead="item for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
+    wrapper: ['bootstrapLabel', 'bootstrapHasError']
   });
 
 
@@ -1224,16 +1247,40 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
             },
             {
               key: 'name',
-              type: 'horizontalInputIcon',
+              type: 'horizontalTypeaheadInputIcon',
               templateOptions: {
                 label: 'Найменування відповідача',
                 placeholder: 'Найменування відповідача',
                 required: true,
+                options: [],
                 PopOverTemplate: '\'modules/createdoc/client/views/popoverTemplate.html\''
               },
               hideExpression : function(){
                 return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
-              }
+              },
+              controller: /* @ngInject */ ["$scope", "$q", function($scope, $q) {
+
+                $scope.onSelect = function($item, $model, $label){
+                  $scope.model.apartment = $item.apartment;
+                  $scope.model.block = $item.block;
+                  $scope.model.city = $item.city;
+                  $scope.model.department = $item.department;
+                  $scope.model.email = $item.email;
+                  $scope.model.house = $item.house;
+                  $scope.model.name = $item.name;
+                  $scope.model.phone = $item.phone;
+                  $scope.model.region = $item.region;
+                  $scope.model.zip = $item.zip;
+                };
+
+                var promise;
+                var endpoint = '/api/company';
+                promise = $http.get(endpoint);
+                return promise.then(function(response) {
+                  $scope.to.options = response.data;
+                  //$scope.model =
+                });
+              }]
             },
             {
               key: 'code_edrp',
@@ -1242,7 +1289,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
                 label: 'Код ЄДРПОУ',
                 placeholder: 'Введіть код ЄДРПОУ Відповідача (8 цифр)',
                 required: true,
-                mask: '9999-9999'
+                mask: '99999999'
               },
               hideExpression : function(){
                 return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
