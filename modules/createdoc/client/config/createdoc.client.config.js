@@ -97,7 +97,7 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
       '<input type="text" ng-model="model[options.key]" typeahead-on-select="onSelect($item, $model, $label)"typeahead="item.name for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
       '</div>',
       '<div class="col col-1">',
-      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info"  uib-popover-template = {{options.templateOptions.PopOverTemplate}} popover-placement="right" popover-trigger="click">',
+      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info"  uib-popover-template = {{options.templateOptions.PopOverTemplate}} popover-is-open = "popoverflag" popover-placement="right" popover-trigger="click">',
       '</i>',
       '</div>',
       '</div>'
@@ -148,6 +148,25 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
     },
     wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
   });
+  formlyConfigProvider.setType({
+    name: 'ZipInput',
+    extends: 'input',
+    template: '<input class="form-control input" ng-model="model[options.key]"/>',
+    defaultOptions: {
+      ngModelAttrs: {
+        mask: {
+          attribute: 'ui-mask'
+        },
+        maskPlaceholder: {
+          attribute: 'ui-mask-placeholder'
+        }
+      },
+      templateOptions: {
+        maskPlaceholder: ''
+      }
+    },
+  });
+
 
   formlyConfigProvider.setType({
     name: 'horizontalCheckbox',

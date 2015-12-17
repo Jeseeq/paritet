@@ -50,12 +50,14 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
               city: person.city,
               department: person.department,
               region: person.region,
+              street: person.street,
               house: person.house,
               block: person.block,
               apartment: person.apartment,
               zip: person.zip,
               phone: person.phone,
-              email: person.email
+              email: person.email,
+              code_edrp : person.code_edrp
             });
 
             // Redirect after save
@@ -139,17 +141,22 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
               },
               controller: /* @ngInject */ function($scope, $q) {
 
+                $scope.close = function(){
+                  $scope.popoverflag = false;
+                };
                 $scope.onSelect = function($item, $model, $label){
                   $scope.model.apartment = $item.apartment;
                   $scope.model.block = $item.block;
                   $scope.model.city = $item.city;
                   $scope.model.department = $item.department;
+                  $scope.model.street = $item.street;
                   $scope.model.email = $item.email;
                   $scope.model.house = $item.house;
                   $scope.model.name = $item.name;
                   $scope.model.phone = $item.phone;
                   $scope.model.region = $item.region;
                   $scope.model.zip = $item.zip;
+                  $scope.model.code_edrp = $item.code_edrp;
                 };
 
                 var promise;
@@ -293,15 +300,12 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
 
 
                 {
-                  "className": "input col col-4 col-xs-offset-8",
-                  "type": "input",
+                  "className": "input col col-2 col-xs-offset-10",
+                  "type": "ZipInput",
                   "key": "zip",
                   "templateOptions": {
-                    "type": "number",
-                    "placeholder": "Індекс",
-                    "max": 99999,
-                    "min": 0,
-                    "pattern": "\\d{5}"
+                    label : "Індекс",
+                    mask: '99999'
                   }
                 },
               ]

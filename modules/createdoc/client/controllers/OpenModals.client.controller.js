@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('createdoc').controller('ModalQuestionThree', ['$scope', '$stateParams','$location','Authentication','documentData', '$log', '$uibModal',
+angular.module('createdoc').controller('ModalQuestionOne', ['$scope', '$stateParams','$location','Authentication','documentData', '$log', '$uibModal',
     function ($scope, $stateParams, $location, Authentication, documentData, $log, $uibModal, $q, $http) {
       $scope.data = documentData;
       $scope.authentication = Authentication;

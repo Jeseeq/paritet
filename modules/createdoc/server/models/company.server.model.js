@@ -33,6 +33,10 @@ var Company = new Schema({
     type: String,
     default: '',
   },
+  street:{
+    type: String,
+    default: '',
+  },
   house:{
     type: String,
     default: '',
@@ -46,7 +50,7 @@ var Company = new Schema({
     default: '',
   },
   zip:{
-    type: Number,
+    type: String,
     default: '',
   },
   phone:{
@@ -57,6 +61,10 @@ var Company = new Schema({
     type: String,
     default: '',
   },
+  code_edrp:{
+    type: Number,
+    default: ''
+  }
 
 
 

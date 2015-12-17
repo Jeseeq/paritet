@@ -963,7 +963,7 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], ["formlyConfigProvide
       '<input type="text" ng-model="model[options.key]" typeahead-on-select="onSelect($item, $model, $label)"typeahead="item.name for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
       '</div>',
       '<div class="col col-1">',
-      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info"  uib-popover-template = {{options.templateOptions.PopOverTemplate}} popover-placement="right" popover-trigger="click">',
+      '<i class=" icon-custom icon-sm-tabs icon-bg-blue fa fa-info"  uib-popover-template = {{options.templateOptions.PopOverTemplate}} popover-is-open = "popoverflag" popover-placement="right" popover-trigger="click">',
       '</i>',
       '</div>',
       '</div>'
@@ -1014,6 +1014,25 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], ["formlyConfigProvide
     },
     wrapper: ['horizontalBootstrapLabel', 'bootstrapHasError']
   });
+  formlyConfigProvider.setType({
+    name: 'ZipInput',
+    extends: 'input',
+    template: '<input class="form-control input" ng-model="model[options.key]"/>',
+    defaultOptions: {
+      ngModelAttrs: {
+        mask: {
+          attribute: 'ui-mask'
+        },
+        maskPlaceholder: {
+          attribute: 'ui-mask-placeholder'
+        }
+      },
+      templateOptions: {
+        maskPlaceholder: ''
+      }
+    },
+  });
+
 
   formlyConfigProvider.setType({
     name: 'horizontalCheckbox',
@@ -1102,7 +1121,7 @@ angular.module('createdoc').config(['$stateProvider',
 
 'use strict';
 
-angular.module('createdoc').controller('ModalQuestionThree', ['$scope', '$stateParams','$location','Authentication','documentData', '$log', '$uibModal',
+angular.module('createdoc').controller('ModalQuestionOne', ['$scope', '$stateParams','$location','Authentication','documentData', '$log', '$uibModal',
     function ($scope, $stateParams, $location, Authentication, documentData, $log, $uibModal, $q, $http) {
       $scope.data = documentData;
       $scope.authentication = Authentication;
@@ -1171,12 +1190,14 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
               city: person.city,
               department: person.department,
               region: person.region,
+              street: person.street,
               house: person.house,
               block: person.block,
               apartment: person.apartment,
               zip: person.zip,
               phone: person.phone,
-              email: person.email
+              email: person.email,
+              code_edrp : person.code_edrp
             });
 
             // Redirect after save
@@ -1260,17 +1281,22 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
               },
               controller: /* @ngInject */ ["$scope", "$q", function($scope, $q) {
 
+                $scope.close = function(){
+                  $scope.popoverflag = false;
+                };
                 $scope.onSelect = function($item, $model, $label){
                   $scope.model.apartment = $item.apartment;
                   $scope.model.block = $item.block;
                   $scope.model.city = $item.city;
                   $scope.model.department = $item.department;
+                  $scope.model.street = $item.street;
                   $scope.model.email = $item.email;
                   $scope.model.house = $item.house;
                   $scope.model.name = $item.name;
                   $scope.model.phone = $item.phone;
                   $scope.model.region = $item.region;
                   $scope.model.zip = $item.zip;
+                  $scope.model.code_edrp = $item.code_edrp;
                 };
 
                 var promise;
@@ -1414,15 +1440,12 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$rootSc
 
 
                 {
-                  "className": "input col col-4 col-xs-offset-8",
-                  "type": "input",
+                  "className": "input col col-2 col-xs-offset-10",
+                  "type": "ZipInput",
                   "key": "zip",
                   "templateOptions": {
-                    "type": "number",
-                    "placeholder": "Індекс",
-                    "max": 99999,
-                    "min": 0,
-                    "pattern": "\\d{5}"
+                    label : "Індекс",
+                    mask: '99999'
                   }
                 },
               ]
