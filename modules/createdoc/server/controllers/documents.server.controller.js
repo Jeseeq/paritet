@@ -211,7 +211,7 @@ exports.listCompany = function (req, res){
   //  result.results = company;
   //  res.json(result);
   //});
-};
+}; 
 
 exports.createCompany = function (req, res){
   console.log('try save');
