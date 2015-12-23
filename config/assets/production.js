@@ -34,7 +34,9 @@ module.exports = {
         'public/lib/ui-select/dist/select.min.js',
         'public/lib/angular-google-places-autocomplete/dist/autocomplete.min.js',
 
-
+        //scroll assets
+        'public/lib/jquery.nicescroll/jquery.nicescroll.min.js',
+        'public/lib/angular-nicescroll/angular-nicescroll.js',
         
 
 
