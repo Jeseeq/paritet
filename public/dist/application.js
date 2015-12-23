@@ -1380,7 +1380,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
 
                   },
                   "expressionProperties": {
-                    "templateOptions.disabled": "vm.person.city == 'Київ'"
+                    "templateOptions.disabled": "model.city == 'Київ'"
                   }
                 },
                 {

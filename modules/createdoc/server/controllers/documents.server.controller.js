@@ -101,7 +101,7 @@ exports.NewDocumentByID = function (req, res, next, id) {
 };
 
 /*
-Create category  
+Create category
 */
 
 
