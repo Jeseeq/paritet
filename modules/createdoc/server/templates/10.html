@@ -7,7 +7,7 @@
 	<meta name="author" content="313">
 	<meta name="created" content="20151222;142300000000000">
 	<meta name="changedby" content="jeseeq ">
-	<meta name="changed" content="20151223;14902279772803">
+	<meta name="changed" content="20151223;173602255050101">
 	<meta name="AppVersion" content="14.0000">
 	<meta name="Company" content="11">
 	<meta name="DocSecurity" content="0">
@@ -55,8 +55,8 @@
 			</p>
 		</td>
 		<td width="271" style="border: none; padding: 0cm">
-			<p style="margin-bottom: 0cm"><font color="#0000ff"><span lang="uk-UA">{{first_name}} {{last_name}}-по
-			батькові</span></font></p>
+			<p style="margin-bottom: 0cm"><font color="#0000ff"><span lang="uk-UA">{{first_name}}
+			{{last_name}}</span><span lang="uk-UA">-по батькові</span></font></p>
 			<p style="margin-bottom: 0cm"><span lang="uk-UA">адреса
 			проживання (перебування): </span><font color="#0000ff"><span lang="uk-UA">індекс,</span></font></p>
 			<p style="margin-bottom: 0cm"><font color="#0000ff"><span lang="uk-UA">адреса
@@ -100,15 +100,19 @@
 			<p align="right"><span lang="uk-UA">Відповідач:</span></p>
 		</td>
 		<td width="271" style="border: none; padding: 0cm">
-			<p style="margin-bottom: 0cm"><font color="#0000ff"><span lang="uk-UA">найменування
-			відповідача</span></font></p>
+			<p style="margin-bottom: 0cm"><font color="#0000ff"><span lang="uk-UA"><i>{{#if
+			name}}{{name}}{{else}}Найменування відповідача{{/if}}</i></span><span lang="uk-UA">
+			</span></font>
+			</p>
 			<p style="margin-bottom: 0cm"><span lang="uk-UA">адреса:
-			і</span><font color="#0000ff"><span lang="uk-UA">ндекс,
-			адреса з форми,</span></font></p>
+			</span><font color="#0000ff"><span lang="uk-UA"><i>{{#if
+			zip}}{{zip}},{{else}} індекс,{{/if}}{{#if
+			city}}{{city}},{{street}},{{house}}{{else}} адреса{{/if}}</i></span></font></p>
 			<p style="margin-bottom: 0cm"><span lang="uk-UA">телефон:</span><font color="#0000ff"><span lang="uk-UA">
-			номер телефону,</span></font></p>
-			<p><span lang="uk-UA">електрона адреса: </span><font color="#0000ff"><span lang="uk-UA">електрона
-			адреса</span></font></p>
+			</span></font><font color="#0000ff"><span lang="uk-UA"><i>{{#if
+			phone}}{{phone}}{{else}}номер телефону,{{/if}}</i></span></font></p>
+			<p><span lang="uk-UA">електрона адреса: </span><font color="#0000ff"><span lang="uk-UA"><i>{{#if
+			email}}{{email}}{{else}}електрона адреса{{/if}}</i></span></font></p>
 		</td>
 	</tr>
 	<tr valign="top">

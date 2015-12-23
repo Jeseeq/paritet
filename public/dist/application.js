@@ -1154,7 +1154,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
     $scope.$watchCollection(function(){return $scope.person;}, function() {
       var promise;
       var endpoint = '/api/documentpreview/' + $scope.documentId;
-      promise = $http.post(endpoint, $scope.person);
+      promise = $http.post(endpoint,$scope.person);
       promise.then(function(response) {
         $scope.documentPreview = response.data;
       });
