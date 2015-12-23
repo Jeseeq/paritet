@@ -11,8 +11,8 @@ var path = require('path'),
   DocumentCategory = mongoose.model('DocumentCategory'),
   Company = mongoose.model('Company'),
   User = mongoose.model('User'),
-  errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  htmlString = require(path.resolve('./modules/createdoc/server/controllers/convert.to.html'));
+  errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
+
 
 
 /**
@@ -205,7 +205,7 @@ exports.categoryByID = function (req, res, next, id) {
 
 
 exports.listCompany = function (req, res){
-  htmlString.htmlstring ();
+  //htmlString.htmlstring ();
   User.findById(req.user._doc._id, 'companies').deepPopulate('companies').exec(function(err, user){
     res.json(user.companies);
   });
