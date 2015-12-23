@@ -1152,6 +1152,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
     };
 
 
+
 //Update template with timeout
     var endpoint = '/api/documentpreview/' + $scope.documentId;
     var timeoutPromise;
@@ -1163,6 +1164,11 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
           $scope.documentPreview = response.data;
         });
       },delayInMs);
+    });
+
+    //get data first time
+    $http.post(endpoint,$scope.person).then(function(response) {
+      $scope.documentPreview = response.data;
     });
 
 
