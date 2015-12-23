@@ -2,6 +2,7 @@
 /*fix fonts TODO:rebuild bootstrap*/
 body
  {
+  height: 100%;
   font-family:"Helvetica Neue", Helvetica, "DejaVu Sans", Arial, sans-serif!important;
 }
 

@@ -42,16 +42,16 @@
 </head>
 <body class = "wrapper">
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
+  <div class="content">
     <section class="container">
       {% block content %}{% endblock %}
     </section>
-  </section>
+  </div>
 
   <footer class="footer">
 
 
-          <div class="col-md-4">
+          <div class="col-md-4 clearfix">
             <span class="text-center">2015 &copy; All Rights Reserved. by <a target="_blank" href="https://twitter.com/paritet">Паритет</a></span>
           </div>
 

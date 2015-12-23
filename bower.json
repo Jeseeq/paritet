@@ -25,7 +25,8 @@
     "angular-ui-select3": "ui-select#*",
     "ui-select": "angular-ui-select#~0.13.2",
     "angular-google-places-autocomplete": "~0.2.7",
-    "angular-sanitize": "~1.4.8"
+    "angular-sanitize": "~1.4.8",
+    "angular-nicescroll": "~0.0.9"
   },
   "resolutions": {
     "angular": "~1.3"

@@ -62,7 +62,12 @@
     </div>
 
     <div class="col-md-6">
-      <iframe width="100%" height="768px" name="test" srcdoc="{{documentPreview}}"></iframe>
+      <!--<iframe width="100%" height="768px" name="test" srcdoc="{{documentPreview}}"></iframe>-->
+
+        <div class="my-scroll-area" ng-nicescroll  ng-bind-html="documentPreview"></div>
+
+
+
     </div>
   </div>
     </uib-tab>

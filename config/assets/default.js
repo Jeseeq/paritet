@@ -22,10 +22,10 @@ module.exports = {
 
       ],
       js: [
-        
+
+
         'public/lib/jquery/dist/jquery.js',
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
-
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
@@ -39,7 +39,9 @@ module.exports = {
         'public/lib/ui-select/dist/select.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/angular-google-places-autocomplete/src/autocomplete.js',
-      
+
+        'public/lib/jquery.nicescroll/jquery.nicescroll.min.js',
+        'public/lib/angular-nicescroll/angular-nicescroll.js',
 
         //forms
         'public/lib/api-check/dist/api-check.js',
@@ -75,6 +77,7 @@ module.exports = {
       'modules/core/client/app/init.js',
       'modules/*/client/*.js',
       'modules/*/client/**/*.js'
+
     ],
     views: ['modules/*/client/views/**/*.html'],
     templates: ['build/templates.js']

@@ -142,3 +142,10 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     background-color:transparent;
     border:none;
 }
+
+
+.my-scroll-area {
+    height : 768px;
+    cursor:default;
+    margin: 0;
+}
