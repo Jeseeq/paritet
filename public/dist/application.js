@@ -1139,8 +1139,8 @@ angular.module('createdoc').controller('CategoryController', ['$scope', '$stateP
     }]);
 
 'use strict';
-angular.module('createdoc').controller('CreatedocController', ['$scope','$stateParams', '$http','$location','Authentication','documentData', '$log', '$uibModal',
-  function ($scope, $stateParams, $http, $location, Authentication, documentData, $log, $uibModal) {
+angular.module('createdoc').controller('CreatedocController', ['$scope','$stateParams', '$http','$location','Authentication','documentData', '$log', '$uibModal', '$timeout',
+  function ($scope, $stateParams, $http, $location, Authentication, documentData, $log, $uibModal, $timeout) {
 
     $scope.documentId = $stateParams.documentId;
     $scope.place = {};
@@ -1151,13 +1151,18 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
       last_name: Authentication.user.lastName || ''
     };
 
-    $scope.$watchCollection(function(){return $scope.person;}, function() {
-      var promise;
-      var endpoint = '/api/documentpreview/' + $scope.documentId;
-      promise = $http.post(endpoint,$scope.person);
-      promise.then(function(response) {
-        $scope.documentPreview = response.data;
-      });
+
+//Update template with timeout
+    var endpoint = '/api/documentpreview/' + $scope.documentId;
+    var timeoutPromise;
+    var delayInMs = 1000;
+    $scope.$watchCollection('person', function() {
+      $timeout.cancel(timeoutPromise);  //does nothing, if timeout alrdy done
+      timeoutPromise = $timeout(function(){   //Set timeout
+        $http.post(endpoint,$scope.person).then(function(response) {
+          $scope.documentPreview = response.data;
+        });
+      },delayInMs);
     });
 
 
