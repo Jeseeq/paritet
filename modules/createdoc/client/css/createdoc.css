@@ -148,4 +148,10 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     height : 768px;
     cursor:default;
     margin: 5px;
+    overflow-x: hidden!important;
+    max-width: 100%!important;
+}
+.smallParagraph p{
+    font-size: 14px;
+    margin-bottom: 1px;
 }
