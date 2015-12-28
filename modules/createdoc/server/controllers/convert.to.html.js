@@ -30,6 +30,11 @@ exports.documentPreview = function(req, res, next, id){
 exports.convertFileDoc = function(req, res){
   var documentsPath = path.resolve('./modules/createdoc/server/uploads/' + req.user._doc.username);
   var file = documentsPath + '/' + req.body[2].title + '.html';
+
+  if(!fs.existsSync(documentsPath)){
+    fs.mkdirSync(documentsPath);
+  }
+
   fs.writeFileSync(file, req.body[0], 'utf8');
 
   var formData = {
@@ -52,6 +57,11 @@ exports.convertFileDoc = function(req, res){
 exports.convertFilePdf = function(req, res){
   var documentsPath = path.resolve('./modules/createdoc/server/uploads/' + req.user._doc.username);
   var file = documentsPath + '/' + req.body[2].title + '.html';
+
+  if(!fs.existsSync(documentsPath)){
+    fs.mkdirSync(documentsPath);
+  }
+
 
   fs.writeFileSync(file, req.body[0], 'utf8');
 
