@@ -908,7 +908,6 @@ angular.module('createdoc').run(['formlyConfig',
 ]);
 
 
-
 angular.module('createdoc', ['formly', 'formlyBootstrap'], ["formlyConfigProvider", function config(formlyConfigProvider) {
   // set templates here
   formlyConfigProvider.setWrapper({
@@ -1117,25 +1116,26 @@ angular.module('createdoc').config(['$stateProvider',
       }
     });
 
-    $stateProvider
-    .state('download', {
-      url: '/document/{documentId}/download',
-      templateUrl: 'modules/createdoc/client/views/download.client.view.html',
-      data: {
-        roles: ['user', 'admin']
-      },
-      controller: 'CreatedocController',
-      resolve: {
-        documentData: ["$stateParams", "Document", function($stateParams, Document) { // Inject a resource named 'Document'
-
-          return Document.get({ documentId: $stateParams.documentId });
-
-          // Return the original promise inside the returned $resource object
-          // Since this is a true promise, the resolve will wait
-          //return Data.$promise;
-        }]
-      }
-    });
+    //$stateProvider
+    //.state('document.download', {
+    //  url: '/download',
+    //  templateUrl: 'modules/createdoc/client/views/download.client.view.html',
+    //  parent : 'document',
+    //  data: {
+    //    roles: ['user', 'admin']
+    //  },
+    //  controller: 'CreatedocController',
+    //  resolve: {
+    //    documentData: function($stateParams, Document) { // Inject a resource named 'Document'
+    //
+    //      return Document.get({ documentId: $stateParams.documentId });
+    //
+    //      // Return the original promise inside the returned $resource object
+    //      // Since this is a true promise, the resolve will wait
+    //      //return Data.$promise;
+    //    }
+    //  }
+    //});
   }
 ]);
 
@@ -1172,19 +1172,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
     };
 
 
-    $scope.downloadPdf = function(){
-      $http.post('/api/convertFilePdf', [$scope.documentPreview, $scope.person, $scope.data], { responseType: 'arraybuffer' }).then(function(response){
-        var data = new Blob([response.data], { type: 'application/pdf' });
-        FileSaver.saveAs(data, $scope.data.title + '.pdf');
-      });
-    };
 
-    $scope.downloadDoc = function(){
-      $http.post('/api/convertFileDoc', [$scope.documentPreview, $scope.person, $scope.data], { responseType: 'arraybuffer' }).then(function(response){
-        var data = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
-        FileSaver.saveAs(data, $scope.data.title + '.docx');
-      });
-    };
 //Update template with timeout
     var endpoint = '/api/documentpreview/' + $scope.documentId;
     var timeoutPromise;
@@ -1538,7 +1526,23 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
         $log.info('Modal dismissed at: ' + new Date());
       });
     };
+
+    $scope.downloadPdf = function(){
+      $http.post('/api/convertFilePdf', [$scope.documentPreview, $scope.person, $scope.data], { responseType: 'arraybuffer' }).then(function(response){
+        var data = new Blob([response.data], { type: 'application/pdf' });
+        FileSaver.saveAs(data, $scope.data.title + '.pdf');
+      });
+    };
+
+    $scope.downloadDoc = function(){
+      $http.post('/api/convertFileDoc', [$scope.documentPreview, $scope.person, $scope.data], { responseType: 'arraybuffer' }).then(function(response){
+        var data = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+        FileSaver.saveAs(data, $scope.data.title + '.docx');
+      });
+    };
+
   }
+
   ]);
 
 

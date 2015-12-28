@@ -35,6 +35,7 @@ exports.convertFileDoc = function(req, res){
     fs.mkdirSync(documentsPath);
   }
 
+  
   fs.writeFileSync(file, req.body[0], 'utf8');
 
   var formData = {

@@ -67,8 +67,10 @@
         <div  onmousedown='return false;' onselectstart='return false;' class="my-scroll-area smallParagraph margin-bottom-40" ng-nicescroll  ng-bind-html="documentPreview"></div>
 
       <div class="row">
-        <div class="col-xs-4">
-      <a class = "btn-u btn-u-lg btn-u-blue rounded" ng-click="convertFile()" ui-sref ="download({documentId: data._id})" ><i class="fa fa-download">Скачать документ</i></a>
+        <div class="col-xs-6">
+      <!--<a class = "btn-u btn-u-lg btn-u-blue rounded" ng-click="convertFile()" ui-sref ="document.download" ><i class="fa fa-download">Скачать документ</i></a>-->
+          <input ng-click="downloadPdf()" type="image" src="image/icons/pdf.png">
+          <input ng-click="downloadDoc()"type="image" src="image/icons/doc.png">
         </div>
       </div>
     </div>

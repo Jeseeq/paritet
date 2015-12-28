@@ -44,24 +44,25 @@ angular.module('createdoc').config(['$stateProvider',
       }
     });
 
-    $stateProvider
-    .state('download', {
-      url: '/document/{documentId}/download',
-      templateUrl: 'modules/createdoc/client/views/download.client.view.html',
-      data: {
-        roles: ['user', 'admin']
-      },
-      controller: 'CreatedocController',
-      resolve: {
-        documentData: function($stateParams, Document) { // Inject a resource named 'Document'
-
-          return Document.get({ documentId: $stateParams.documentId });
-
-          // Return the original promise inside the returned $resource object
-          // Since this is a true promise, the resolve will wait
-          //return Data.$promise;
-        }
-      }
-    });
+    //$stateProvider
+    //.state('document.download', {
+    //  url: '/download',
+    //  templateUrl: 'modules/createdoc/client/views/download.client.view.html',
+    //  parent : 'document',
+    //  data: {
+    //    roles: ['user', 'admin']
+    //  },
+    //  controller: 'CreatedocController',
+    //  resolve: {
+    //    documentData: function($stateParams, Document) { // Inject a resource named 'Document'
+    //
+    //      return Document.get({ documentId: $stateParams.documentId });
+    //
+    //      // Return the original promise inside the returned $resource object
+    //      // Since this is a true promise, the resolve will wait
+    //      //return Data.$promise;
+    //    }
+    //  }
+    //});
   }
 ]);

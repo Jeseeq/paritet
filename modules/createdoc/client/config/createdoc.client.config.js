@@ -42,7 +42,6 @@ angular.module('createdoc').run(['formlyConfig',
 ]);
 
 
-
 angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(formlyConfigProvider) {
   // set templates here
   formlyConfigProvider.setWrapper({
