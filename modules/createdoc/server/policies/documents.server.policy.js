@@ -33,7 +33,15 @@ exports.invokeRolesPolicies = function () {
     {
       resources: '/api/documentpreview/:documentId',
       permissions: '*'
-    }
+    },
+    {
+      resources: '/api/convertFileDoc',
+      permissions: ['post']
+    },
+    {
+      resources: '/api/convertFilePdf',
+      permissions: ['post']
+    },
 
 
     ]
@@ -58,7 +66,16 @@ exports.invokeRolesPolicies = function () {
     {
       resources: '/api/documentpreview/:documentId',
       permissions: ['post']
+    },
+    {
+      resources: '/api/convertFileDoc',
+      permissions: ['post']
+    },
+    {
+      resources: '/api/convertFilePdf',
+      permissions: ['post']
     }
+
 
     ]
   }, {

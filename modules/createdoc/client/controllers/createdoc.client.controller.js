@@ -1,6 +1,6 @@
 'use strict';
-angular.module('createdoc').controller('CreatedocController', ['$scope','$stateParams', '$http','$location','Authentication','documentData', '$log', '$uibModal', '$timeout',
-  function ($scope, $stateParams, $http, $location, Authentication, documentData, $log, $uibModal, $timeout) {
+angular.module('createdoc').controller('CreatedocController', ['$scope','$stateParams', '$http','$location','Authentication','documentData', '$log', '$uibModal', '$timeout', 'FileSaver', 'Blob',
+  function ($scope, $stateParams, $http, $location, Authentication, documentData, $log, $uibModal, $timeout, FileSaver, Blob) {
 
     $scope.documentId = $stateParams.documentId;
     $scope.place = {};
@@ -12,7 +12,19 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
     };
 
 
+    $scope.downloadPdf = function(){
+      $http.post('/api/convertFilePdf', [$scope.documentPreview, $scope.person, $scope.data], { responseType: 'arraybuffer' }).then(function(response){
+        var data = new Blob([response.data], { type: 'application/pdf' });
+        FileSaver.saveAs(data, $scope.data.title + '.pdf');
+      });
+    };
 
+    $scope.downloadDoc = function(){
+      $http.post('/api/convertFileDoc', [$scope.documentPreview, $scope.person, $scope.data], { responseType: 'arraybuffer' }).then(function(response){
+        var data = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+        FileSaver.saveAs(data, $scope.data.title + '.docx');
+      });
+    };
 //Update template with timeout
     var endpoint = '/api/documentpreview/' + $scope.documentId;
     var timeoutPromise;

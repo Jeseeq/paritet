@@ -54,8 +54,10 @@ module.exports = {
         'public/unify/js/app.js',
         
         'public/unify/plugins/smoothScroll.js',
-        'public/unify/plugins/back-to-top.js'
+        'public/unify/plugins/back-to-top.js',
 
+        //blob save
+        'public/lib/angular-file-saver/dist/angular-file-saver.bundle.js'
 
       ]
     },

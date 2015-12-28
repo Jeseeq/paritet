@@ -36,6 +36,10 @@ module.exports = function (app) {
 
   app.route('/api/documentpreview/:documentpreviewId').all(documentsPolicy.isAllowed)
       .post(convert.documentPreview);
+  app.route('/api/convertFileDoc').all(documentsPolicy.isAllowed)
+      .post(convert.convertFileDoc);
+  app.route('/api/convertFilePdf').all(documentsPolicy.isAllowed)
+      .post(convert.convertFilePdf);
 
   // Finish by binding the article middleware
   app.param('documentId', documents.NewDocumentByID);
