@@ -11,8 +11,12 @@ angular.module('users').factory('PasswordValidator', ['$window',
         return result;
       },
       getPopoverMsg: function () {
-        var popoverMsg = 'Please enter a passphrase or password with greater than 10 characters, numbers, lowercase, upppercase, and special characters.';
+        var popoverMsg = 'Пожалуйста введите пароль состоящий минимум из 6 символов и хотя бы 1 цифры';
         return popoverMsg;
+      },
+      configPassword: function(config){
+        owaspPasswordStrengthTest.config(config);
+        return true;
       }
     };
   }

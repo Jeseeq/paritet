@@ -1,9 +1,21 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator',
-  function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator','$uibModal',
+  function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator, $uibModal) {
     $scope.authentication = Authentication;
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
+
+
+    $scope.passwordConfig = function (){
+      var config = {
+        allowPassphrases       : false,
+        maxLength              : 128,
+        minLength              : 6,
+        minPhraseLength        : 20,
+        minOptionalTestsToPass : 5,
+      };
+      PasswordValidator.configPassword(config);
+    };
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
@@ -61,6 +73,21 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       // Effectively call OAuth authentication route:
       $window.location.href = url;
+    };
+
+
+    $scope.openTerms = function(){
+      var modalInstance = $uibModal.open({
+        animation: 'true',
+        templateUrl: 'terms.html',
+        controller: function (){
+          $scope.cancel = function ($uibModalInstance) {
+            $uibModalInstance.dismiss('cancel');
+          };
+
+        },
+        size: 'md'
+      });
     };
   }
 ]);

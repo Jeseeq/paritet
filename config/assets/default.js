@@ -37,7 +37,7 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap.js',
         'public/lib/angular-sanitize/angular-sanitize.js',
         'public/lib/ui-select/dist/select.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/dist/owasp-password-strength-test.js',
         'public/lib/angular-google-places-autocomplete/src/autocomplete.js',
 
         'public/lib/jquery.nicescroll/jquery.nicescroll.min.js',

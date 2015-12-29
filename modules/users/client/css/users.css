@@ -34,3 +34,22 @@
   min-height: 150px;
   max-height: 150px;
 }
+
+.social-btn img {
+  max-height: 50px;
+  padding: 5px 5px 5px 5px;
+}
+
+.user-img {
+  color: #4582EC;
+  display: block;
+  font-size: 75px;
+  margin-bottom: -15px;
+  margin-top: 50px;
+  position: relative;
+  text-align: center;
+  top: 0;
+}
+.grey {
+  background: #fafafa!important;
+}

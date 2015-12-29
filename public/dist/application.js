@@ -1858,10 +1858,22 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
 
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator',
-  function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator','$uibModal',
+  function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator, $uibModal) {
     $scope.authentication = Authentication;
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
+
+
+    $scope.passwordConfig = function (){
+      var config = {
+        allowPassphrases       : false,
+        maxLength              : 128,
+        minLength              : 6,
+        minPhraseLength        : 20,
+        minOptionalTestsToPass : 5,
+      };
+      PasswordValidator.configPassword(config);
+    };
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
@@ -1920,6 +1932,21 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     };
+
+
+    $scope.openTerms = function(){
+      var modalInstance = $uibModal.open({
+        animation: 'true',
+        templateUrl: 'terms.html',
+        controller: function (){
+          $scope.cancel = function ($uibModalInstance) {
+            $uibModalInstance.dismiss('cancel');
+          };
+
+        },
+        size: 'md'
+      });
+    };
   }
 ]);
 
@@ -1929,6 +1956,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
   function ($scope, $stateParams, $http, $location, Authentication, PasswordValidator) {
     $scope.authentication = Authentication;
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
+
 
     //If user is signed in then redirect back home
     if ($scope.authentication.user) {
@@ -2278,8 +2306,12 @@ angular.module('users').factory('PasswordValidator', ['$window',
         return result;
       },
       getPopoverMsg: function () {
-        var popoverMsg = 'Please enter a passphrase or password with greater than 10 characters, numbers, lowercase, upppercase, and special characters.';
+        var popoverMsg = 'Пожалуйста введите пароль состоящий минимум из 6 символов и хотя бы 1 цифры';
         return popoverMsg;
+      },
+      configPassword: function(config){
+        owaspPasswordStrengthTest.config(config);
+        return true;
       }
     };
   }

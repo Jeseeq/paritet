@@ -1,62 +1,103 @@
-<div ng-controller="AuthenticationController">
-<div class="row">
-  <h3 class="col-md-12 text-center">Или зарегистрируйтесь</h3>
-  <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
-    <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required>
-          <div ng-messages="userForm.firstName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">First name is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="credentials.lastName" placeholder="Last Name" required>
-          <div ng-messages="userForm.lastName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Last name is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email" lowercase required>
-          <div ng-messages="userForm.email.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Email address is required.</p>
-            <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
+<div ng-controller="AuthenticationController" ng-init="passwordConfig()">
+
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8 col-md-offset-3 col-md-6">
+  <!-- Reg-Form -->
+  <i class="user-img icon-user-follow margin-bottom-40"></i>
+  <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin sky-form rounded" novalidate autocomplete="off">
+    <header class="grey">Регистрация</header>
+    <fieldset>
+
+      <section class="form-group" show-errors>
+        <label class="input">Имя пользователя</label>
+        <label class="input">
+          <i class="icon-append fa fa-user"></i>
+          <input type="text" name="username" placeholder="Имя пользователя" ng-model="credentials.username" lowercase required class="form-control">
           <div ng-messages="userForm.username.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Username is required.</p>
+            <p class="help-block error-text" ng-message="required">Имя пользователя обязательное поле.</p>
           </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
+        </label>
+      </section>
+
+      <section class="form-group" show-errors>
+        <label class="input">Email</label>
+        <label class="input">
+          <i class="icon-append fa fa-envelope"></i>
+          <input type="email" id="email" name="email" ng-model="credentials.email" placeholder="Email" lowercase required class="form-control">
+          <div ng-messages="userForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Email обязательное поле.</p>
+            <p class="help-block error-text" ng-message="email">Неверный Email.</p>
+          </div>
+        </label>
+      </section>
+
+      <section class="form-group" show-errors>
+        <label class="input">Пароль</label>
+        <label class="input">
+          <i class="icon-append fa fa-lock"></i>
+          <input type="password" class="form-control" id="password" name="password"  ng-model="credentials.password" placeholder="Пароль" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
           <div ng-messages="userForm.password.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Password is required.</p>
+            <p class="help-block error-text" ng-message="required">Пароль обязательное поле.</p>
             <div ng-repeat="passwordError in passwordErrors">
               <p class="help-block error-text" ng-show="userForm.password.$error.requirements">{{passwordError}}</p>
             </div>
           </div>
-        </div>
-        <div class="form-group" ng-show="!userForm.password.$error.required">
-          <label>Password Requirements</label>
-          <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
-        </div>
-        <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">Регистрация</button>
-          &nbsp; или&nbsp;
-          <a ui-sref="authentication.signin" class="show-signup">Вход</a>
-        </div>
-        <div ng-show="error" class="text-center text-danger">
-          <strong ng-bind="error"></strong>
-        </div>
-      </fieldset>
-    </form>
-  </div>
-  </div>
+        </label>
+      </section>
+
+      <div class="form-group" ng-show="!userForm.password.$error.required">
+        <label>Сложность пароля</label>
+        <progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></progressbar>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="row margin-bottom-5">
+        <section class="col col-6">
+          <label class="input">
+            <input type="text" name="firstname" placeholder="Имя*"  ng-model="credentials.first">
+          </label>
+        </section>
+        <section class="col col-6">
+          <label class="input">
+            <input type="text" name="lastname" placeholder="Фамилия*" ng-model="credentials.lastName">
+          </label>
+        </section>
+      </div>
+      <p class="small">*- Даные которые будут использоваться при составлении иска</p>
+
+      <section>
+        <label class="checkbox"><input type="checkbox" name="terms" id="terms"><i></i>Я соглашаюсь с <a ng-click="openTerms()" href="">условиями</a> использования</label>
+      </section>
+    </fieldset>
+    <footer>
+
+      <div class="text-center form-group">
+        <button type="submit" class="btn btn-primary rounded">Регистрация</button>
+        &nbsp; или&nbsp;
+        <a ui-sref="authentication.signin" class="show-signup">Вход</a>
+      </div>
+      <div ng-show="error" class="text-center text-danger">
+        <strong ng-bind="error"></strong>
+      </div>
+    </footer>
+  </form>
+      </div>
+    </div>
+  <!-- End Reg-Form -->
 </div>
+
+
+<script type="text/ng-template" id="terms.html">
+  <div class="modal-header bg-grey">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Условия соглшения</h4>
+  </div>
+  <div class="modal-body">
+    1.1. Настоящее Соглашение заключается между Покупателем и Интернет-магазином в лице менеджера сайта в момент оформления заказа.
+    1.2. При оформлении заказа Покупатель соглашается с условиями, оговоренными настоящим Соглашением. Акцептом данного договора покупателем является размещение заказа через сайт Интернет магазина «leggi.com.ua».
+    1.3 Совершить покупку в Интернет-магазине может любое физическое или юридическое лицо, способное принять и оплатить товар.
+    1.4. Продавец оставляет за собой право вносить изменения в настоящие Условия, в связи с чем, Клиент обязуется регулярно отслеживать изменения в Условиях.
+  </div>
+ </script>
+

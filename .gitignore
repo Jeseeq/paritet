@@ -10,7 +10,7 @@ Thumbs.db
 .nodemonignore
 .sass-cache/
 node_modules/
-!node_modules/mongo-express/config.js
+!node_modules/owasp-password-strength-test/
 public/lib/
 app/tests/coverage/
 .bower-*/

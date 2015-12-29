@@ -1,12 +1,10 @@
 <div ng-controller="AuthenticationController">
  <div class="row">
-  <h3 class="col-md-12 text-center">Или введя имя пользователя и пароль</h3>
-
    <div class="margin-bottom-40"></div>
-<div class="col-xs-offset-2 col-xs-8 col-md-offset-3 col-md-6">
-  <form name="userForm" ng-submit="signin(userForm.$valid)" class="sky-form" novalidate autocomplete="off">
-    <header>Вход</header>
-
+    <div class="col-xs-offset-2 col-xs-8 col-md-offset-3 col-md-6">
+      <i class="user-img icon-user margin-bottom-40"></i>
+      <form name="userForm" ng-submit="signin(userForm.$valid)" class="sky-form rounded" novalidate autocomplete="off">
+        <header class="grey">Вход</header>
     <fieldset>
       <section>
         <div class="row form-group" show-errors>
@@ -39,27 +37,37 @@
           </div>
         </div>
       </section>
-
-
     </fieldset>
-    <footer>
+
       <div class="text-center form-group">
-        <button type="submit" class="btn btn-primary">Вход</button>
-        &nbsp; или&nbsp;
+        <button type="submit" class="btn btn-primary rounded">Вход</button>
+        &nbsp;или&nbsp;
         <a ui-sref="authentication.signup">Регистрация</a>
-      </div>
-      <div class="text-center forgot-password">
-        <a ui-sref="password.forgot">Забыли пароль?</a>
       </div>
       <alert type="danger" ng-show="error" class="text-center text-danger">
         <span ng-bind="error"></span>
       </alert>
+        <div class="text-center forgot-password">
+          <a ui-sref="password.forgot">Забыли пароль?</a>
+        </div>
+        <!--<footer>-->
+      <!--<div class="col-md-12 text-center social-btn">-->
+        <!--<img ng-click="callOauthProvider('/api/auth/facebook')" ng-src="/modules/users/client/img/buttons/facebook.png">-->
+        <!--<img ng-click="callOauthProvider('/api/auth/twitter')" ng-src="/modules/users/client/img/buttons/twitter.png">-->
+        <!--<img ng-click="callOauthProvider('/api/auth/google')" ng-src="/modules/users/client/img/buttons/google.png">-->
+        <!--<img ng-click="callOauthProvider('/api/auth/linkedin')" ng-src="/modules/users/client/img/buttons/linkedin.png">-->
+        <!--<img ng-click="callOauthProvider('/api/auth/github')" ng-src="/modules/users/client/img/buttons/github.png">-->
+      <!--</div>-->
+
     </footer>
   </form>
-
-
 </div>
 <!-- End Login-Form -->
 
+
+
 </div>
   </div>
+
+
+
