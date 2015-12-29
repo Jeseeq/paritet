@@ -80,8 +80,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       var modalInstance = $uibModal.open({
         animation: 'true',
         templateUrl: 'terms.html',
-        controller: function (){
-          $scope.cancel = function ($uibModalInstance) {
+        controller: function ($uibModalInstance, $scope){
+          $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
           };
 
