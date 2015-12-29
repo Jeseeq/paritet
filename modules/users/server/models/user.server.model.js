@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
   crypto = require('crypto'),
   validator = require('validator'),
   generatePassword = require('generate-password'),
-  owasp = require('owasp-password-strength-test');
+  owasp = require('../../owasp-password/owasp-password-strength-test');
 
 
 
