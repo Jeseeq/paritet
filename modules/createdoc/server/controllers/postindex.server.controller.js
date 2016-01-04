@@ -7,7 +7,7 @@ var path = require('path'),
 
 exports.listPostal = function (req, res) {
   var query = req.query.city;
-  Postindex.find({ 'city': { $regex: new RegExp(query, "i") } }).exec(function (err, cities) {
+  Postindex.find({ 'city': { $regex: new RegExp(query, "i") } }).limit(1000).exec(function (err, cities) {
     var result = {};
     result.results = cities;
     res.json(result);

@@ -1368,8 +1368,8 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
                   "type": "typeahead",
                   "key": "city",
                   "templateOptions": {
-                    label: "Місто",
-                    "placeholder": "Місто",
+                    label: "Населений пункт",
+                    "placeholder": "Населений пункт",
                     required: true,
                     options: []
                   },
@@ -1387,9 +1387,11 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
                     $scope.$watchCollection(function(){return $scope.model.city;}, function() {
                       $timeout.cancel(timeoutPromise);  //does nothing, if timeout alrdy done
                       timeoutPromise = $timeout(function(){   //Set timeout
-                        $http.get(endpoint, { params : { city: $scope.model.city } }).then(function(response) {
-                          $scope.to.options = response.data.results;
-                        });
+                        if($scope.model.city){
+                          $http.get(endpoint, { params : { city: $scope.model.city } }).then(function(response) {
+                            $scope.to.options = response.data.results;
+                          });
+                        }
                       },delayInMs);
                     });
                   }]
