@@ -8,7 +8,7 @@
 
 @media (min-width: 992px){
 	.question{
-		margin-top: 0px;
+		margin-top: 0;
 	}
 }
 
@@ -154,4 +154,17 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 .smallParagraph p{
     font-size: 14px;
     margin-bottom: -6px;
+}
+
+.modal-form input {
+    height: 30px!important;
+    font-size: 13px!important;
+}
+.modal-form select{
+    padding-top: 0!important;
+    height: 30px!important;
+    font-size: 13px!important;
+}
+.modal-form label{
+    padding-top: 0!important;
 }

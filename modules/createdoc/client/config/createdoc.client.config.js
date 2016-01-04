@@ -182,7 +182,7 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], function config(forml
 
   formlyConfigProvider.setType({
     name: 'typeahead',
-    template: '<input type="text" ng-model="model[options.key]" typeahead="item for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
+    template: '<input type="text" ng-model="model[options.key]" typeahead-on-select="onSelect($item, $model, $label)" typeahead="item.city for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
     wrapper: ['bootstrapLabel', 'bootstrapHasError']
   });
 

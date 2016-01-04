@@ -42,6 +42,10 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/convertFilePdf',
       permissions: ['post']
     },
+    {
+      resources: '/api/postindex',
+      permissions: ['get']
+    },
 
 
     ]
@@ -74,7 +78,11 @@ exports.invokeRolesPolicies = function () {
     {
       resources: '/api/convertFilePdf',
       permissions: ['post']
-    }
+    },
+    {
+      resources: '/api/postindex',
+      permissions: ['get']
+    },
 
 
     ]

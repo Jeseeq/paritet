@@ -5,7 +5,8 @@
  */
 var documentsPolicy = require('../policies/documents.server.policy'),
   documents = require('../controllers/documents.server.controller'),
-  convert = require('../controllers/convert.to.html');
+  convert = require('../controllers/convert.to.html'),
+  postindex = require('../controllers/postindex.server.controller');
 
 
 module.exports = function (app) {
@@ -40,6 +41,9 @@ module.exports = function (app) {
       .post(convert.convertFileDoc);
   app.route('/api/convertFilePdf').all(documentsPolicy.isAllowed)
       .post(convert.convertFilePdf);
+
+  app.route('/api/postindex').all(documentsPolicy.isAllowed)
+      .get(postindex.listPostal);
 
   // Finish by binding the article middleware
   app.param('documentId', documents.NewDocumentByID);

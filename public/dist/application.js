@@ -1048,7 +1048,7 @@ angular.module('createdoc', ['formly', 'formlyBootstrap'], ["formlyConfigProvide
 
   formlyConfigProvider.setType({
     name: 'typeahead',
-    template: '<input type="text" ng-model="model[options.key]" typeahead="item for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
+    template: '<input type="text" ng-model="model[options.key]" typeahead-on-select="onSelect($item, $model, $label)" typeahead="item.city for item in to.options | filter:$viewValue | limitTo:8" class="form-control">',
     wrapper: ['bootstrapLabel', 'bootstrapHasError']
   });
 
@@ -1346,7 +1346,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
                 label: 'Код ЄДРПОУ',
                 placeholder: 'Введіть код ЄДРПОУ Відповідача (8 цифр)',
                 required: true,
-                mask: '99999999'
+                mask: '9 9 9 9 9 9 9 9'
               },
               hideExpression : function(){
                 return (vm.data.questions[0].selected === '2')||(vm.data.questions[0].selected === '3');
@@ -1358,20 +1358,41 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
             },
             {
               "className": "section-label2",
-              "template": "<div class='heading'>Адреса Відповідача</div>"
+              "template": "<div class='heading'><strong>Адреса Відповідача</strong></div>"
             },
             {
               "className": "row padding-1px",
               "fieldGroup": [
                 {
                   "className": "input col col-4",
-                  "type": "input",
+                  "type": "typeahead",
                   "key": "city",
                   "templateOptions": {
                     label: "Місто",
                     "placeholder": "Місто",
-                    required: true
-                  }
+                    required: true,
+                    options: []
+                  },
+                  controller: /* @ngInject */ ["$scope", function($scope) {
+
+                    $scope.onSelect = function($item, $model, $label){
+                      $scope.model.department = $item.department;
+                      $scope.model.region = $item.region;
+                      $scope.model.zip = $item.postal;
+                    };
+
+                    var endpoint = '/api/postindex/';
+                    var timeoutPromise;
+                    var delayInMs = 100;
+                    $scope.$watchCollection(function(){return $scope.model.city;}, function() {
+                      $timeout.cancel(timeoutPromise);  //does nothing, if timeout alrdy done
+                      timeoutPromise = $timeout(function(){   //Set timeout
+                        $http.get(endpoint, { params : { city: $scope.model.city } }).then(function(response) {
+                          $scope.to.options = response.data.results;
+                        });
+                      },delayInMs);
+                    });
+                  }]
                 },
                 {
                   "className": "select col col-4",
@@ -1465,7 +1486,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
                   "key": "zip",
                   "templateOptions": {
                     label : "Індекс",
-                    mask: '99999'
+                    mask: '9 9 9 9 9'
                   }
                 }
               ]
