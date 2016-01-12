@@ -53,8 +53,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
 
           //create company on save(modal)
           $scope.create = function () {
-
-
             var company = new Company({
               user: Authentication.user,
               name: person.name,
@@ -407,4 +405,3 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
   }
 
   ]);
-
