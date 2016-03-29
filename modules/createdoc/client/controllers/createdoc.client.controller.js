@@ -173,7 +173,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
                 promise = $http.get(endpoint);
                 return promise.then(function(response) {
                   $scope.to.options = response.data;
-                  //$scope.model =
                 });
               }
             },
