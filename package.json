@@ -61,7 +61,7 @@
     "passport-local": "^1.0.0",
     "passport-paypal-openidconnect": "^0.1.1",
     "passport-twitter": "^1.0.2",
-    "phantomjs": ">=1.9.0",
+    "phantomjs-prebuilt": "^2.1.7",
     "rasterizehtml": "^1.2.1",
     "request": "^2.67.0",
     "serve-favicon": "^2.3.0",
