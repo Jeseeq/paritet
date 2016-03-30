@@ -68,7 +68,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 25px;
+  margin-bottom: 45px;
 }
 .footer {
   position: absolute;
@@ -89,5 +89,3 @@ body {
 /*.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus { background-color: #21537A}*/
 /*.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover,.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus { background-color: #21537A}*/
 /*.dropdown-menu>li>a { color: #B0B0B0}*/
-
-

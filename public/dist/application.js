@@ -1201,7 +1201,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
       var modalInstance = $uibModal.open({
         animation: true,
         templateUrl: 'myModalContent.html',
-        controller: function ($http, $scope, $uibModalInstance, data, person, Company, Authentication) {
+        controller: ["$http", "$scope", "$uibModalInstance", "data", "person", "Company", "Authentication", function ($http, $scope, $uibModalInstance, data, person, Company, Authentication) {
 
 
           //Header title select
@@ -1213,8 +1213,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
 
           //create company on save(modal)
           $scope.create = function () {
-
-
             var company = new Company({
               user: Authentication.user,
               name: person.name,
@@ -1335,7 +1333,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
                 promise = $http.get(endpoint);
                 return promise.then(function(response) {
                   $scope.to.options = response.data;
-                  //$scope.model =
                 });
               }]
             },
@@ -1530,7 +1527,7 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
               }
             }
           ];
-        },
+        }],
         controllerAs: 'vm',
         size: 'md',
         backdrop : "static",
@@ -1567,7 +1564,6 @@ angular.module('createdoc').controller('CreatedocController', ['$scope','$stateP
   }
 
   ]);
-
 
 
 'use strict';
@@ -1961,12 +1957,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       var modalInstance = $uibModal.open({
         animation: 'true',
         templateUrl: 'terms.html',
-        controller: function ($uibModalInstance, $scope){
+        controller: ["$uibModalInstance", "$scope", function ($uibModalInstance, $scope){
           $scope.cancel = function () {
             $uibModalInstance.dismiss('cancel');
           };
 
-        },
+        }],
         size: 'md'
       });
     };

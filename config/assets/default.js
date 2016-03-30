@@ -4,63 +4,12 @@ module.exports = {
   client: {
     lib: {
       css: [
-       // 'public/lib/bootstrap/dist/css/bootstrap.css',
-        //'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        //'public/bootstraptheme/usebootstrap.css',
-        'public/dist/css/bootstrap.min.css',
-
-
-        'public/unify/css/*.css',
-        'public/unify/css/plugins/*.css',
-        'public/unify/css/plugins/line-icons/*.css',
-        'public/unify/plugins/font-awesome/css/font-awesome.min.css',
-        'public/unify/plugins/revolution-slider/rs-plugin/css/settings.css',
-        'public/unify/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
-        'public/unify/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
-        'public/lib/ui-select/dist/select.css',
-        'public/lib/angular-google-places-autocomplete/src/autocomplete.css'
-
       ],
       js: [
 
-
-        'public/lib/jquery/dist/jquery.js',
+        'public/lib/jquery/dist/jquery.min.js',
         'public/lib/bootstrap/dist/js/bootstrap.min.js',
-        'public/lib/angular/angular.js',
-        'public/lib/angular-resource/angular-resource.js',
-        'public/lib/angular-animate/angular-animate.js',
-        'public/lib/angular-messages/angular-messages.js',
-        'public/lib/angular-ui-router/release/angular-ui-router.js',
-        'public/lib/angular-ui-utils/ui-utils.js',
-        'public/lib/angular-file-upload/angular-file-upload.js',
-        'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-        'public/lib/angular-bootstrap/ui-bootstrap.js',
-        'public/lib/angular-sanitize/angular-sanitize.js',
-        'public/lib/ui-select/dist/select.js',
-        'public/dist/owasp-password-strength-test.js',
-        'public/lib/angular-google-places-autocomplete/src/autocomplete.js',
-
-        'public/lib/jquery.nicescroll/jquery.nicescroll.min.js',
-        'public/lib/angular-nicescroll/angular-nicescroll.js',
-
-        //forms
-        'public/lib/api-check/dist/api-check.js',
-        'public/lib/angular-formly/dist/formly.js',
-        'public/lib/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
-        'public/lib/angular-ui-mask/dist/mask.js',
-       
-
-        'public/unify/js/plugins/revolution-slider.js',
-        'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js',
-        'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js',
-
-        'public/unify/js/app.js',
-        
-        'public/unify/plugins/smoothScroll.js',
-        'public/unify/plugins/back-to-top.js',
-
-          //blob save
-        'public/lib/angular-file-saver/dist/angular-file-saver.bundle.js'
+        'public/lib/angular/angular.min.js',
 
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

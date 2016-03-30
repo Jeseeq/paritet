@@ -5,6 +5,7 @@
  */
 var _ = require('lodash'),
   defaultAssets = require('./config/assets/default'),
+  devAssets = require('./config/assets/development'),
   testAssets = require('./config/assets/test'),
   testConfig = require('./config/env/test'),
   fs = require('fs'),
@@ -121,12 +122,20 @@ module.exports = function (grunt) {
         }
       }
     },
+    concat: {
+      dist: {
+        src: [devAssets.client.lib.jsConcat],
+        dest: 'public/dist/built.js'
+      }
+    },
+
     uglify: {
       production: {
         options: {
           mangle: false
         },
         files: {
+          // 'built.min.js':'built.js',
           'public/dist/application.min.js': 'public/dist/application.js'
         }
       }
@@ -134,10 +143,11 @@ module.exports = function (grunt) {
     cssmin: {
       combine: {
         files: {
-          'public/dist/application.min.css': defaultAssets.client.css
+          'public/dist/application.min.css': _.union(defaultAssets.client.css, devAssets.client.lib.css)
         }
       }
     },
+
     sass: {
       dist: {
         files: [{
@@ -240,6 +250,7 @@ module.exports = function (grunt) {
   // Load NPM tasks
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-protractor-coverage');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   // Make sure upload directory exists
   grunt.task.registerTask('mkdir:upload', 'Task that makes sure upload directory exists.', function () {

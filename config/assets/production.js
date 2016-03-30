@@ -4,17 +4,7 @@ module.exports = {
   client: {
     lib: {
       css: [
-        'public/dist/css/bootstrap.min.css',
-        //'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
-        'public/unify/css/*.css',
-        'public/unify/css/plugins/*.css',
-        'public/unify/css/plugins/line-icons/*.css',
-        'public/unify/plugins/font-awesome/css/font-awesome.min.css',
-        'public/unify/plugins/revolution-slider/rs-plugin/css/settings.css',
-        'public/unify/plugins/sky-forms-pro/skyforms/css/sky-forms.css',
-        'public/unify/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
-        'public/lib/ui-select/dist/select.css',
-        'public/lib/angular-google-places-autocomplete/dist/autocomplete.min.css'
+
       ],
       js: [
         'public/lib/jquery/dist/jquery.min.js',
@@ -37,7 +27,7 @@ module.exports = {
         //scroll assets
         'public/lib/jquery.nicescroll/jquery.nicescroll.min.js',
         'public/lib/angular-nicescroll/angular-nicescroll.js',
-        
+
 
 
          //forms
@@ -45,14 +35,14 @@ module.exports = {
         'public/lib/angular-formly/dist/formly.min.js',
         'public/lib/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
         'public/lib/angular-ui-mask/dist/mask.min.js',
-       
+
 
         'public/unify/js/plugins/revolution-slider.js',
         'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js',
         'public/unify/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js',
 
         'public/unify/js/app.js',
-        
+
         'public/unify/plugins/smoothScroll.js',
         'public/unify/plugins/back-to-top.js',
 
